@@ -1,7 +1,9 @@
 import { FaGithub } from "react-icons/fa6";
 
+import ConclusionSection from "@/app/components/ConclusionSection";
 import ScrollExpandingSection from "@/app/components/ScrollExpandingSection";
 import TopicChooser from "@/app/components/TopicChooser";
+import { conclusionContent } from "@/data/conclusion";
 import { contentIntro, topicChooser } from "@/data/content";
 
 export default function Home() {
@@ -39,6 +41,8 @@ export default function Home() {
       <ScrollExpandingSection content={contentIntro}>
         <TopicChooser content={topicChooser} />
       </ScrollExpandingSection>
+
+      <ConclusionSection content={conclusionContent} />
     </main>
   );
 }
