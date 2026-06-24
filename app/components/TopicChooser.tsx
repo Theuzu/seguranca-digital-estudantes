@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  type CSSProperties,
   type MouseEvent as ReactMouseEvent,
   type PointerEvent as ReactPointerEvent,
   useCallback,
@@ -18,7 +19,6 @@ import {
 } from "react-icons/fa6";
 import { useReducedMotion } from "motion/react";
 
-import styles from "./TopicChooser.module.css";
 import type { TopicChooserContent, TopicIconKey } from "@/data/content";
 
 type TopicChooserProps = {
@@ -33,8 +33,17 @@ type GestureState = {
   isDragging: boolean;
 };
 
+type AlignmentMode = "mobile-center" | "edge-start";
+
 const DRAG_THRESHOLD = 8;
 const SETTLE_DURATION = 280;
+const DESKTOP_ALIGNMENT_WIDTH = 640;
+
+const sectionBackground: CSSProperties = {
+  background:
+    "linear-gradient(rgba(79, 124, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 124, 255, 0.06) 1px, transparent 1px), #09112A",
+  backgroundSize: "72px 72px",
+};
 
 const topicIcons: Record<TopicIconKey, IconType> = {
   key: FaKey,
@@ -46,6 +55,17 @@ const topicIcons: Record<TopicIconKey, IconType> = {
 
 function easeOutCubic(progress: number) {
   return 1 - Math.pow(1 - progress, 3);
+}
+
+function getAlignmentMode(rail: HTMLDivElement): AlignmentMode {
+  return rail.clientWidth < DESKTOP_ALIGNMENT_WIDTH
+    ? "mobile-center"
+    : "edge-start";
+}
+
+function getInlineStartInset(rail: HTMLDivElement) {
+  const computedStyle = window.getComputedStyle(rail);
+  return Number.parseFloat(computedStyle.paddingInlineStart) || 0;
 }
 
 export default function TopicChooser({ content }: TopicChooserProps) {
@@ -78,7 +98,12 @@ export default function TopicChooser({ content }: TopicChooserProps) {
     const rail = railRef.current;
     if (!rail || cardRefs.current.length === 0) return 0;
 
-    const viewportCenter = rail.scrollLeft + rail.clientWidth / 2;
+    const mode = getAlignmentMode(rail);
+    const inlineStartInset = getInlineStartInset(rail);
+    const targetPosition =
+      mode === "mobile-center"
+        ? rail.scrollLeft + rail.clientWidth / 2
+        : rail.scrollLeft + inlineStartInset;
     let nearestIndex = 0;
     let nearestDistance = Number.POSITIVE_INFINITY;
 
@@ -86,8 +111,11 @@ export default function TopicChooser({ content }: TopicChooserProps) {
       const card = cardRefs.current[index];
       if (!card) continue;
 
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const distance = Math.abs(cardCenter - viewportCenter);
+      const cardPosition =
+        mode === "mobile-center"
+          ? card.offsetLeft + card.offsetWidth / 2
+          : card.offsetLeft;
+      const distance = Math.abs(cardPosition - targetPosition);
 
       if (distance < nearestDistance) {
         nearestDistance = distance;
@@ -103,11 +131,15 @@ export default function TopicChooser({ content }: TopicChooserProps) {
     const card = cardRefs.current[index];
     if (!rail || !card) return 0;
 
-    const centeredOffset =
-      card.offsetLeft - (rail.clientWidth - card.offsetWidth) / 2;
+    const mode = getAlignmentMode(rail);
+    const inlineStartInset = getInlineStartInset(rail);
+    const targetOffset =
+      mode === "mobile-center"
+        ? card.offsetLeft - (rail.clientWidth - card.offsetWidth) / 2
+        : card.offsetLeft - inlineStartInset;
     const maxOffset = Math.max(0, rail.scrollWidth - rail.clientWidth);
 
-    return Math.min(Math.max(centeredOffset, 0), maxOffset);
+    return Math.min(Math.max(targetOffset, 0), maxOffset);
   }, []);
 
   const settleToIndex = useCallback(
@@ -290,20 +322,40 @@ export default function TopicChooser({ content }: TopicChooserProps) {
     <div
       id={content.id}
       aria-labelledby={`${content.id}-heading`}
-      className={styles.section}
+      className="relative isolate overflow-hidden bg-[#09112A] py-[clamp(4rem,8vw,7rem)] pb-0 text-[#F5F6FA]"
+      style={sectionBackground}
     >
-      <div className={styles.headingWrap}>
-        <span className={styles.retroMark} aria-hidden="true">
-          &gt;&gt;&gt;
-        </span>
-        <h2 id={`${content.id}-heading`} className={styles.heading}>
-          {content.heading}
+      <div
+        className="pointer-events-none absolute -top-36 -right-48 -z-10 h-[30rem] w-[30rem] rounded-full bg-[#4F7CFF]/15 blur-[90px]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-12">
+        <h2
+          id={`${content.id}-heading`}
+          className="max-w-[8ch] font-(family-name:--font-space-grotesk) text-[clamp(2.9rem,15vw,4.9rem)] leading-[0.9] font-medium text-[#F5F6FA] sm:text-[clamp(4.2rem,9vw,6rem)] lg:text-[clamp(4.6rem,7.4vw,7rem)]"
+        >
+          <span className="block">{content.title.lineOne}</span>
+          <span className="flex items-baseline gap-3">
+            <span>{content.title.lineTwo}</span>
+            <span className="font-(family-name:--font-silkscreen) text-[0.45em] leading-none text-[#7EDB8A]">
+              {content.title.accent}
+            </span>
+          </span>
         </h2>
       </div>
 
       <div
         ref={railRef}
-        className={`${styles.rail} ${isDragging ? styles.dragging : ""}`}
+        className={[
+          "mt-[clamp(2.75rem,7vw,5.25rem)] flex w-full gap-[0.9rem] overflow-x-auto overscroll-x-contain",
+          "px-[max(0.75rem,calc((100%_-_min(78vw,19rem))/2))] pb-6 sm:gap-4 sm:px-[clamp(1rem,2.5vw,2.5rem)] lg:gap-[1.1rem]",
+          "snap-x snap-mandatory scroll-px-[max(0.75rem,calc((100%_-_min(78vw,19rem))/2))] sm:scroll-px-[clamp(1rem,2.5vw,2.5rem)]",
+          "touch-pan-y [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          isDragging
+            ? "cursor-grabbing snap-none select-none"
+            : "cursor-grab",
+        ].join(" ")}
         aria-label="Temas de segurança digital"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -322,7 +374,7 @@ export default function TopicChooser({ content }: TopicChooserProps) {
               }}
               href={`#${topic.id}`}
               draggable={false}
-              className={styles.card}
+              className="group flex min-h-[22.5rem] flex-[0_0_min(78vw,19rem)] snap-center snap-always flex-col justify-between overflow-hidden rounded-[1.35rem] border border-[#141826]/15 bg-[#F5F6FA] p-6 text-[#09112A] no-underline shadow-[0_1.2rem_3rem_rgba(0,0,0,0.16)] transition-colors duration-[250ms] ease-out [-webkit-user-drag:none] hover:border-[#4F7CFF] hover:bg-[#4F7CFF] hover:text-[#09112A] focus-visible:border-[#4F7CFF] focus-visible:bg-[#4F7CFF] focus-visible:text-[#09112A] focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-[#F5F6FA] sm:min-h-96 sm:flex-[0_0_clamp(15.5rem,34vw,18rem)] sm:snap-start sm:p-7 lg:min-h-[24.5rem] lg:flex-[0_0_clamp(13.75rem,15.5vw,15rem)] lg:rounded-[1.15rem]"
               onClick={handleCardClick}
               onFocus={() => {
                 if (gestureRef.current.pointerId === null) {
@@ -330,13 +382,18 @@ export default function TopicChooser({ content }: TopicChooserProps) {
                 }
               }}
             >
-              <span className={styles.iconFrame} aria-hidden="true">
+              <span
+                className="grid min-h-16 w-full place-items-center text-[clamp(3.25rem,15vw,5.25rem)] text-[#09112A] transition-colors duration-[250ms] group-hover:text-[#09112A] group-focus-visible:text-[#09112A] sm:text-[4.5rem] lg:text-[4rem]"
+                aria-hidden="true"
+              >
                 <Icon />
               </span>
 
-              <span className={styles.cardCopy}>
-                <span className={styles.cardTitle}>{topic.title}</span>
-                <span className={styles.cardDescription}>
+              <span className="grid gap-3">
+                <span className="max-w-[12ch] font-(family-name:--font-space-grotesk) text-[clamp(1.45rem,6vw,1.9rem)] leading-[1.02] font-bold text-current sm:text-[1.65rem] lg:text-[1.55rem]">
+                  {topic.title}
+                </span>
+                <span className="max-w-[24ch] font-(family-name:--font-inter) text-[0.95rem] leading-[1.45] text-[#4E5568] transition-colors duration-[250ms] group-hover:text-[#09112A] group-focus-visible:text-[#09112A] lg:text-[0.92rem]">
                   {topic.description}
                 </span>
               </span>
@@ -346,7 +403,7 @@ export default function TopicChooser({ content }: TopicChooserProps) {
       </div>
 
       <div
-        className={styles.pagination}
+        className="mx-auto mt-3 flex min-h-10 w-fit items-center gap-2 rounded-full border border-[#F5F6FA]/50 bg-[#09112A]/80 px-3 py-2 sm:hidden"
         role="status"
         aria-live="polite"
         aria-label={`Tema ${currentIndex + 1} de ${content.topics.length}`}
@@ -355,26 +412,13 @@ export default function TopicChooser({ content }: TopicChooserProps) {
           <span
             key={topic.id}
             aria-hidden="true"
-            className={`${styles.marker} ${
-              index === currentIndex ? styles.currentMarker : ""
-            }`}
+            className={[
+              "h-2 rounded-full transition-[width,background-color] duration-[250ms]",
+              index === currentIndex
+                ? "w-8 bg-[#4F7CFF]"
+                : "w-2 bg-[#F5F6FA]/70",
+            ].join(" ")}
           />
-        ))}
-      </div>
-
-      <div className={styles.destinations}>
-        {content.topics.map((topic) => (
-          <div
-            key={topic.id}
-            id={topic.id}
-            tabIndex={-1}
-            aria-labelledby={`${topic.id}-heading`}
-            className={styles.destination}
-          >
-            <h3 id={`${topic.id}-heading`} className={styles.destinationTitle}>
-              {topic.title}
-            </h3>
-          </div>
         ))}
       </div>
     </div>
