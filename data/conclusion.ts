@@ -63,7 +63,7 @@ export const conclusionContent: ConclusionContent = {
       "O formulário é rápido e suas respostas serão utilizadas exclusivamente para fins acadêmicos.",
     ],
     actionLabel: "Responder ao formulário",
-    formUrl: null,
+    formUrl: "https://forms.gle/7EU7TUh3xtDYFTC16",
   },
   thanks: {
     title: "Agradecimento",

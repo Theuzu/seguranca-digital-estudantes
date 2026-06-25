@@ -1,13 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
-
 import Image from "next/image";
 
 import type { TopicDetailContent, TopicGuidanceEntry } from "@/data/content";
@@ -25,11 +17,34 @@ type GuidanceSequenceProps = {
 type GuidanceCardProps = {
   entry: TopicGuidanceEntry;
   index: number;
-  total: number;
-  progress: ReturnType<typeof useScroll>["scrollYProgress"];
 };
 
-function StaticGuidanceList({
+function GuidanceCard({ entry, index }: GuidanceCardProps) {
+  return (
+    <li
+      className="sticky top-0 min-h-[68svh] border-t border-[#F5F6FA]/30 bg-[#09112A] py-8 sm:min-h-[70svh] sm:py-10 lg:min-h-[72svh] lg:py-12"
+      style={{ zIndex: index + 1 }}
+    >
+      <div className="mx-auto grid w-full max-w-[960px] min-w-0 gap-6 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8 lg:grid-cols-[7rem_minmax(0,1fr)] lg:gap-12">
+        <span className="font-(family-name:--font-silkscreen) text-sm text-[#7EDB8A]">
+          {entry.label}
+        </span>
+
+        <div className="grid min-w-0 content-start gap-7 pb-14 sm:gap-8 sm:pb-16 lg:gap-10 lg:pb-20">
+          <h4 className="max-w-[14ch] break-words font-(family-name:--font-space-grotesk) text-[clamp(2rem,8vw,3.25rem)] leading-[0.95] font-medium text-[#F5F6FA] sm:text-[clamp(2.5rem,6vw,4rem)] lg:text-[clamp(3rem,5vw,5rem)]">
+            {entry.title}
+          </h4>
+
+          <p className="max-w-3xl text-[clamp(1rem,1.8vw,1.35rem)] leading-8 text-[#C9CBD8]">
+            {entry.body}
+          </p>
+        </div>
+      </div>
+    </li>
+  );
+}
+
+function GuidanceSequence({
   headingId,
   heading,
   entries,
@@ -37,183 +52,27 @@ function StaticGuidanceList({
   return (
     <section
       aria-labelledby={headingId}
-      className="mx-auto grid w-full max-w-[1344px] gap-8 px-6 py-20 sm:px-12 lg:grid-cols-[minmax(14rem,0.6fr)_minmax(0,1.4fr)] lg:px-20"
+      className="relative border-y border-[#F5F6FA]/20"
     >
-      <div>
+      <header className="mx-auto w-full max-w-[960px] px-6 py-20 sm:px-12 sm:py-24 lg:px-0 lg:py-28">
         <p className="mb-3 font-(family-name:--font-silkscreen) text-xs text-[#7EDB8A] uppercase">
           etapa
         </p>
         <h3
           id={headingId}
-          className="font-(family-name:--font-space-grotesk) text-[clamp(2.2rem,5vw,4.75rem)] leading-[0.92] font-medium text-[#F5F6FA]"
+          className="max-w-[14ch] font-(family-name:--font-space-grotesk) text-[clamp(2.5rem,10vw,4.25rem)] leading-[0.92] font-medium text-[#F5F6FA] sm:text-[clamp(3.25rem,7vw,5rem)] lg:text-[clamp(3.5rem,5.5vw,5.75rem)]"
         >
           {heading}
         </h3>
-      </div>
+      </header>
 
-      <ol className="grid gap-4">
-        {entries.map((entry) => (
-          <li
-            key={entry.id}
-            className="grid gap-4 border-t border-[#F5F6FA]/20 py-6 sm:grid-cols-[4rem_minmax(0,1fr)]"
-          >
-            <span className="font-(family-name:--font-silkscreen) text-sm text-[#7EDB8A]">
-              {entry.label}
-            </span>
-            <span className="grid gap-3">
-              <strong className="font-(family-name:--font-space-grotesk) text-2xl leading-tight font-medium text-[#F5F6FA] sm:text-3xl">
-                {entry.title}
-              </strong>
-              <span className="max-w-3xl text-base leading-7 text-[#C9CBD8] sm:text-lg">
-                {entry.body}
-              </span>
-            </span>
-          </li>
+      <ol className="relative mx-auto w-full max-w-[1080px] px-6 pb-[28svh] sm:px-12 lg:px-0 lg:pb-[34svh]">
+        {entries.map((entry, index) => (
+          <GuidanceCard key={entry.id} entry={entry} index={index} />
         ))}
       </ol>
     </section>
   );
-}
-
-function GuidanceCard({ entry, index, total, progress }: GuidanceCardProps) {
-  const segment = 1 / total;
-  const start = index * segment;
-  const end = (index + 1) * segment;
-  const enterStart = Math.max(0, start - segment * 0.55);
-  const exitStart = Math.min(1, end - segment * 0.35);
-  const clipInput =
-    index === 0
-      ? [0, exitStart, end]
-      : index === total - 1
-        ? [enterStart, start, 1]
-        : [enterStart, start, exitStart, end];
-  const clipOutput =
-    index === 0
-      ? ["inset(0% 0 0% 0)", "inset(0% 0 0% 0)", "inset(0% 0 100% 0)"]
-      : index === total - 1
-        ? ["inset(100% 0 0% 0)", "inset(0% 0 0% 0)", "inset(0% 0 0% 0)"]
-        : [
-            "inset(100% 0 0% 0)",
-            "inset(0% 0 0% 0)",
-            "inset(0% 0 0% 0)",
-            "inset(0% 0 100% 0)",
-          ];
-  const opacityInput =
-    index === 0
-      ? [0, exitStart, end]
-      : index === total - 1
-        ? [enterStart, start, 1]
-        : [enterStart, start, exitStart, end];
-  const opacityOutput =
-    index === 0
-      ? [1, 1, 0]
-      : index === total - 1
-        ? [0, 1, 1]
-        : [0, 1, 1, 0];
-  const yInput =
-    index === 0 ? [0, end] : [enterStart, start, end];
-  const yOutput =
-    index === 0 ? ["0px", "-24px"] : ["28px", "0px", "-24px"];
-
-  const clipPath = useTransform(progress, clipInput, clipOutput);
-  const opacity = useTransform(progress, opacityInput, opacityOutput);
-  const y = useTransform(progress, yInput, yOutput);
-
-  return (
-    <motion.div
-      className="absolute inset-0 grid content-center gap-8 bg-[#09112A] py-12"
-      style={{ clipPath, opacity, y }}
-    >
-      <div className="grid gap-6 border-t border-[#F5F6FA]/20 pt-8 lg:grid-cols-[8rem_minmax(0,1fr)]">
-        <span className="font-(family-name:--font-silkscreen) text-sm text-[#7EDB8A]">
-          {entry.label}
-        </span>
-        <div className="grid max-w-4xl gap-5">
-          <h4 className="font-(family-name:--font-space-grotesk) text-[clamp(2.1rem,5vw,5.5rem)] leading-[0.93] font-medium text-[#F5F6FA]">
-            {entry.title}
-          </h4>
-          <p className="max-w-3xl text-[clamp(1rem,1.8vw,1.35rem)] leading-8 text-[#C9CBD8]">
-            {entry.body}
-          </p>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function AnimatedGuidanceSequence({
-  headingId,
-  heading,
-  entries,
-}: GuidanceSequenceProps) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: trackRef,
-    offset: ["start start", "end end"],
-  });
-
-  return (
-    <section aria-labelledby={headingId} className="relative">
-      <div className="sr-only">
-        <h3 id={headingId}>{heading}</h3>
-        <ol>
-          {entries.map((entry) => (
-            <li key={entry.id}>
-              <strong>
-                {entry.label}. {entry.title}
-              </strong>{" "}
-              {entry.body}
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      <div
-        ref={trackRef}
-        aria-hidden="true"
-        className="relative"
-        style={{ height: `${Math.max(entries.length, 2) * 105}svh` }}
-      >
-        <div className="sticky top-0 mx-auto flex min-h-svh w-full max-w-[1344px] items-center overflow-hidden px-6 sm:px-12 lg:px-20">
-          <div className="grid w-full gap-10 lg:grid-cols-[minmax(14rem,0.55fr)_minmax(0,1.45fr)]">
-            <div className="self-center">
-              <p className="mb-3 font-(family-name:--font-silkscreen) text-xs text-[#7EDB8A] uppercase">
-                etapa
-              </p>
-              <h3
-                id={`${headingId}-visual`}
-                className="font-(family-name:--font-space-grotesk) text-[clamp(2.2rem,5vw,4.75rem)] leading-[0.92] font-medium text-[#F5F6FA]"
-              >
-                {heading}
-              </h3>
-            </div>
-
-            <div className="relative min-h-[58svh] overflow-hidden">
-              {entries.map((entry, index) => (
-                <GuidanceCard
-                  key={entry.id}
-                  entry={entry}
-                  index={index}
-                  total={entries.length}
-                  progress={scrollYProgress}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GuidanceSequence(props: GuidanceSequenceProps) {
-  const shouldReduceMotion = useReducedMotion() ?? false;
-
-  if (shouldReduceMotion || props.entries.length === 1) {
-    return <StaticGuidanceList {...props} />;
-  }
-
-  return <AnimatedGuidanceSequence {...props} />;
 }
 
 export default function TopicDetailSection({ topics }: TopicDetailSectionProps) {
