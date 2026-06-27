@@ -28,11 +28,12 @@
 **Performance Goals**: Smooth reading and clean animations on mobile and desktop
 
 **Constraints**: Brazilian Portuguese website copy, English documentation,
-`theme-vibe.md`, clean animations, content in `data/*.ts`, Google Forms in the
-Conclusion section, no new dependencies without explicit approval, no
-backend/auth/database unless approved
+`design.md` compliance, single-page narrative architecture, content in
+`data/*.ts`, prominent Google Forms evaluation CTA near the end, no new
+dependencies without explicit approval, no backend/auth/database unless approved
 
-**Scale/Scope**: Simple academic website with Hero, Content, and Conclusion
+**Scale/Scope**: Responsive single-page academic website with Introduction,
+educational journey, and conclusion/evaluation macro phases
 
 ## Constitution Check
 
@@ -42,19 +43,25 @@ The plan MUST answer each gate before implementation work starts:
 
 - Website/docs language split: How does the feature keep student-facing website
   content in Brazilian Portuguese and project documentation in English?
-- Three-section structure: How does the feature preserve or intentionally map to
-  Hero, Content, and Conclusion?
-- Data-file content model: Which `data/*.ts` files own the website content?
-- Theme compliance: Which parts of `theme-vibe.md` guide the visual and motion
-  decisions?
-- Clean animation: How does the feature keep motion purposeful, lightweight,
-  readable, and accessible?
+- Single-page narrative architecture: How does the feature preserve the
+  Introduction, educational journey, and conclusion/evaluation macro phases while
+  following the detailed order in `design.md`?
+- Data-driven topic content: Which `data/*.ts` files own the website content,
+  topic order, guidance entries, and checklists?
+- Design compliance: Which hard constraints from `design.md` guide layout,
+  visual hierarchy, sticky-card behavior, motion, responsive behavior, and
+  accessibility?
+- Accessible motion: How does the feature keep essential content readable
+  without animation and provide `prefers-reduced-motion` behavior?
+- Responsive/accessibility coverage: Which required viewports, keyboard paths,
+  skip-link behavior, focus states, touch targets, and 200% zoom states must be
+  checked?
 - Next.js discipline: Which relevant guide under `node_modules/next/dist/docs/`
   was checked before code changes?
 - Dependency restraint: Are new dependencies avoided? If not, record explicit
   user approval.
-- Google Forms scope: If the feature touches Conclusion, how is the Google Forms
-  link/embed connected without backend integration?
+- Google Forms scope: If the feature touches the ending flow, how is the Google
+  Forms link/embed kept prominent and accessible without backend integration?
 - Responsible cybersecurity framing: Does the content educate defensive digital
   literacy without operational abuse instructions?
 
@@ -98,5 +105,5 @@ simple academic website scope]
 | Violation | Why Needed | Simpler Alternative Rejected Because |
 |-----------|------------|-------------------------------------|
 | [e.g., new dependency] | [current need] | [why existing stack is insufficient] |
-| [e.g., extra route] | [current need] | [why the three-section page is insufficient] |
+| [e.g., extra route] | [current need] | [why the single-page journey is insufficient] |
 | [e.g., backend Forms integration] | [current need] | [why a Google Forms link/embed is insufficient] |

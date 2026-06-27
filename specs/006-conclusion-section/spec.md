@@ -93,7 +93,7 @@ A student sees a brief academic-purpose note in the footer and a final thank-you
 - **FR-011**: The statement "Este site foi desenvolvido como parte de uma atividade acadêmica de extensão sobre segurança digital no ambiente universitário." MUST appear as visually secondary academic-purpose content in the footer.
 - **FR-012**: Moving the academic-purpose statement to the footer MUST NOT separate the remaining evaluation explanation from its heading or action.
 - **FR-013**: The visual composition MUST adapt the references' spacious editorial close, oversized heading, clear call-to-action area, and contrasting footer without copying their branding, logos, client strips, badges, or unrelated navigation.
-- **FR-014**: Sizing, spacing, typography, colors, and surfaces MUST follow the existing design rules and `theme-vibe.md`, including the established container padding and responsive type scale.
+- **FR-014**: Sizing, spacing, typography, colors, and surfaces MUST follow the existing design rules and `design.md`, including the established container padding and responsive type scale.
 - **FR-015**: The design MUST maintain the site's 80% modern and 20% retro-computing balance through restrained accents rather than terminal, glitch, or hacker imagery.
 - **FR-016**: The Conclusion MUST adapt across mobile, tablet, desktop, 200% text zoom, and content wrapping without clipping, overlap, illegible line lengths, or horizontal page overflow.
 - **FR-017**: When a multi-column layout no longer provides readable text widths, content MUST reflow into one logical column in this order: closing message, evaluation explanation and action, thank-you content, academic footer.
@@ -138,6 +138,6 @@ A student sees a brief academic-purpose note in the footer and a final thank-you
 - The user will provide the final Google Forms URL before release; until then, the placeholder remains explicit and non-navigable.
 - "The form is quick" is presented as supplied editorial copy, not as a measured completion-time guarantee.
 - The Google Form itself owns response collection, privacy notices, validation, confirmation, and availability.
-- The Conclusion follows the existing topic content on the same one-page Hero, Content, and Conclusion experience.
+- The Conclusion follows the existing topic content in the same single-page educational journey.
 - Exact responsive breakpoints and decorative details belong to planning, provided the measurable layout and accessibility outcomes remain satisfied.
 - Existing project animation capabilities are sufficient; no new animation or form dependency is approved.

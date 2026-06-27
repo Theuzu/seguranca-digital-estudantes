@@ -90,16 +90,18 @@
 - **FR-001**: Site MUST present student-facing website content in clear Brazilian
   Portuguese.
 - **FR-002**: Project documentation for the feature MUST be written in English.
-- **FR-003**: Site MUST preserve the Hero, Content, and Conclusion structure or
-  explicitly map the feature into one of those sections.
-- **FR-004**: Site content MUST be divided through typed files under `data/`,
-  such as `data/*.ts`.
-- **FR-005**: Site MUST follow the visual direction in `theme-vibe.md`,
-  including accessible contrast, readable typography, and clean motion.
+- **FR-003**: Site MUST preserve the single-page educational journey with
+  Introduction, educational journey, and conclusion/evaluation macro phases.
+- **FR-004**: Site content MUST be owned by typed files under `data/`, such as
+  `data/*.ts`, whenever practical.
+- **FR-005**: Site MUST comply with applicable hard constraints in `design.md`,
+  including information architecture, layout, sticky-card behavior, responsive
+  behavior, accessibility, reduced motion, and design-system rules.
 - **FR-006**: Site MUST avoid new dependencies unless the user explicitly
   approves them.
-- **FR-007**: The Conclusion section MUST connect to Google Forms through a link
-  or embed without requiring backend integration.
+- **FR-007**: The conclusion/evaluation flow MUST connect to Google Forms
+  through a prominent accessible link or embed without requiring backend
+  integration.
 - **FR-008**: Cybersecurity examples MUST focus on awareness, prevention, and
   defensive digital literacy.
 
@@ -110,12 +112,14 @@
 
 ### Key Entities *(include if feature involves data)*
 
-- **Topic**: Cybersecurity theme presented to students, with title, explanation,
-  practical takeaway, and optional visual treatment.
-- **Section**: One of the primary presentation areas: Hero, Content, or
-  Conclusion.
-- **Google Form**: External form connected from the Conclusion section through a
-  link or embed.
+- **Topic**: Data-driven cybersecurity chapter presented to students, with
+  title, explanation, optional visual treatment, `O problema`, three practical
+  guidance entries under `Como se proteger` or `Como agir`, and `Checklist`.
+- **Page Region**: One part of the single-page information architecture governed
+  by `design.md`, such as header, hero, overview, topic chapter, final summary,
+  evaluation CTA, acknowledgment, or footer.
+- **Google Form**: External evaluation form connected near the end of the
+  journey through an accessible link or embed.
 
 ## Success Criteria *(mandatory)*
 
@@ -131,7 +135,8 @@
   pages or accounts.
 - **SC-003**: The page remains readable and usable on mobile and desktop
   viewports.
-- **SC-004**: The Conclusion section exposes the Google Forms entry point.
+- **SC-004**: The conclusion/evaluation flow exposes a prominent Google Forms
+  entry point.
 - **SC-005**: The feature passes the agreed lint/build checks for the project.
 
 ## Assumptions
@@ -149,3 +154,4 @@
   Portuguese.
 - The initial experience is static/editorial and does not require auth, storage,
   backend APIs, or third-party services beyond Google Forms.
+- `design.md` is the binding source for visual and interaction details.

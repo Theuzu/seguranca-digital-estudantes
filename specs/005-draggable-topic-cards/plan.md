@@ -38,8 +38,8 @@ keyboard-capable browsers
 on a valid card in 280 milliseconds and never exceeds the 350-millisecond spec
 limit; only one scroll-state update is scheduled per animation frame
 
-**Constraints**: pt-BR public copy; English docs; exactly Hero, Content, and
-Conclusion; existing scroll-expanding introduction retained; five ordered
+**Constraints**: pt-BR public copy; English docs; approved single-page
+narrative architecture; existing scroll-expanding introduction retained; five ordered
 cards; whole-card fragment links; WCAG AA; 82% mobile card target; at least four
 cards visible at 1280px; no body overflow; no new dependency; no Conclusion or
 Google Forms change
@@ -53,14 +53,15 @@ Module, five existing in-page destinations, and no persistent or remote data
 
 - **Website/docs language split**: All card copy stays pt-BR in
   `data/content.ts`; plan artifacts remain English.
-- **Three-section structure**: Rail and destinations remain inside the existing
-  Content section. Hero and Conclusion stay untouched.
-- **Data-file content model**: `data/content.ts` owns chooser heading, five
+- **Single-page narrative architecture**: Rail and destinations remain inside
+  the educational-journey flow. Introduction and conclusion/evaluation stay
+  untouched.
+- **Data-driven topic content**: `data/content.ts` owns chooser heading, five
   stable IDs, icon keys, titles, descriptions, and editorial order.
-- **Theme compliance**: Dark surface `#09112A`, light cards `#F5F6FA`, cloud
-  gray, educational blue `#4F7CFF`, Space Grotesk, Inter, rounded surfaces, and
-  restrained status markers follow `theme-vibe.md`'s 80/20 modern-retro ratio.
-- **Clean animation**: Card-state transitions use 250 ms; snap uses 280 ms;
+- **Design compliance**: Dark surface, light cards, Space Grotesk, readable
+  body type, rounded surfaces, and restrained status markers follow `design.md`
+  and its editorial cybersecurity direction.
+- **Accessible motion**: Card-state transitions use 250 ms; snap uses 280 ms;
   reduced motion disables both. Text never animates independently or becomes
   unreadable.
 - **Next.js discipline**: Checked local Next.js 16 guides for Server and Client

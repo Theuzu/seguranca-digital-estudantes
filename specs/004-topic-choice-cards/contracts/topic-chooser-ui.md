@@ -34,8 +34,8 @@ type TopicChooserProps = {
 - `app/page.tsx` remains a Server Component.
 - Page passes `<TopicChooser content={topicChooser} />` as child content to `ScrollExpandingSection`.
 - Existing Hero stays first and unchanged.
-- Scroll-expanding intro and chooser remain parts of one second top-level Content section.
-- Conclusion remains third-section scope and is not added or modified here.
+- Scroll-expanding intro and chooser remain parts of one educational-journey flow.
+- Conclusion/evaluation scope is not added or modified here.
 
 ## Content Contract
 
@@ -83,4 +83,3 @@ type TopicChooserProps = {
 
 - Existing `10svh` to `100svh` expansion, `8vw` inset, top-corner radius, opacity mapping, Hero pinning, and reduced-motion behavior do not change.
 - Adding chooser height does not alter `useScroll` progress because Motion measures only the original transition track.
-

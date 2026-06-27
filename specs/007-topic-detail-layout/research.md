@@ -2,16 +2,17 @@
 
 ## Decision: Keep the feature inside the existing Content section
 
-**Rationale**: The constitution requires exactly Hero, Content, and Conclusion.
-The topic-detail flow is detailed cybersecurity content, so it belongs below the
-topic chooser inside Content rather than in a new route or fourth section.
+**Rationale**: The constitution requires one coherent single-page educational
+journey. The topic-detail flow is detailed cybersecurity content, so it belongs
+below the topic chooser inside the educational journey rather than in a new route
+or unrelated page region.
 
 **Alternatives considered**:
 
 - New route per topic: rejected because the current site is a one-page academic
   presentation and the chooser already uses in-page anchors.
-- Separate top-level section: rejected because it would break the three-section
-  constitution.
+- Separate route or unrelated page region: rejected because it would break the
+  single-page narrative architecture.
 
 ## Decision: Extend `data/content.ts` with typed topic-detail content
 

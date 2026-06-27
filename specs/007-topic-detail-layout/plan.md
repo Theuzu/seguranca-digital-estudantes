@@ -11,8 +11,8 @@ layout renders topic data as three ordered parts: a text-led problem
 presentation, a sticky sequential guidance sequence with a smooth cut-style
 transition, and a practical checklist. Content remains typed and centralized in
 `data/content.ts`; the initial complete detail uses Topic 3, "Computadores da
-biblioteca e laboratório". The page keeps the existing one-page Hero, Content,
-and Conclusion structure, uses the installed Motion package for scroll progress
+biblioteca e laboratório". The page keeps the existing single-page educational
+journey, uses the installed Motion package for scroll progress
 and reduced-motion handling, and styles the new layout with inline Tailwind CSS
 utilities as requested.
 
@@ -42,8 +42,8 @@ motion uses transform/clip/opacity style changes, settles within the requested
 350ms ceiling where timed animation is used, and creates no layout shift or body
 overflow
 
-**Constraints**: pt-BR public copy; English docs; exactly Hero, Content, and
-Conclusion as top-level sections; content in `data/*.ts`; inline Tailwind CSS
+**Constraints**: pt-BR public copy; English docs; approved single-page narrative
+architecture; content in `data/*.ts`; inline Tailwind CSS
 utilities for the new topic-detail layout; no new dependency; Google Forms stays
 Conclusion-only; WCAG AA contrast; reduced-motion fallback; existing Hero,
 Content intro, topic chooser, and Conclusion behavior preserved
@@ -60,15 +60,14 @@ routes, backend, global theme rewrites, or unrelated topic copy
 - **Website/docs language split**: Public topic copy remains Brazilian
   Portuguese in `data/content.ts`; all generated planning artifacts stay in
   English.
-- **Three-section structure**: Feature maps into the existing Content section.
-  Hero remains first, Conclusion remains third, and no new top-level section or
-  route is introduced.
-- **Data-file content model**: `data/content.ts` owns topic IDs, chooser copy,
+- **Single-page narrative architecture**: Feature maps into the existing
+  educational-journey flow. No new route or unrelated page region is introduced.
+- **Data-driven topic content**: `data/content.ts` owns topic IDs, chooser copy,
   detailed topic copy, guidance entries, and checklist items.
-- **Theme compliance**: The dark editorial guidance/checklist treatment adapts
-  `theme-vibe.md`: modern education first, subtle retro labels/markers only,
+- **Design compliance**: The dark editorial guidance/checklist treatment follows
+  `design.md`: education first, subtle technical labels/markers only,
   trustworthy cybersecurity tone, readable typography, and accessible contrast.
-- **Clean animation**: Motion is limited to the guidance sequence and reduced
+- **Accessible motion**: Motion is limited to the guidance sequence and reduced
   when requested. The problem and checklist remain readable static content.
   Sticky behavior must never trap scroll or hide the reading order.
 - **Next.js discipline**: Checked local Next.js 16 docs for Server and Client

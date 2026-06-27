@@ -39,8 +39,8 @@ browsers
 avoid layout shift, preserve drag settling within the existing 280ms behavior,
 and keep horizontal movement contained to the rail without page-body overflow
 
-**Constraints**: pt-BR public copy; English planning artifacts; exactly Hero,
-Content, and Conclusion top-level sections; chooser content stays in `data/*.ts`;
+**Constraints**: pt-BR public copy; English planning artifacts; approved
+single-page narrative architecture; chooser content stays in `data/*.ts`;
 no new dependencies; inline Tailwind-driven chooser styling; keep reduced-motion
 fallback; preserve existing topic order and topic-detail anchors; keep hover
 feedback limited to color change
@@ -57,14 +57,14 @@ changes, and no new content sections
 - **Website/docs language split**: Public chooser copy stays in Brazilian
   Portuguese inside `data/content.ts`; all generated planning artifacts stay in
   English.
-- **Three-section structure**: Feature only refines the chooser already located
-  inside the Content section. Hero remains first; Conclusion remains third.
-- **Data-file content model**: `data/content.ts` remains the single owner of the
+- **Single-page narrative architecture**: Feature only refines the chooser
+  already located inside the educational-journey flow.
+- **Data-driven topic content**: `data/content.ts` remains the single owner of the
   chooser title copy, topic order, topic IDs, icon keys, and descriptions.
-- **Theme compliance**: Layout continues using `theme-vibe.md` colors and
+- **Design compliance**: Layout continues using `design.md` colors and
   typography: dark educational surface, Space Grotesk headings, Silkscreen
-  retro accent, readable light cards, restrained glow, and accessible contrast.
-- **Clean animation**: Existing drag-settle behavior remains; hover motion is
+  short labels, readable cards, restrained effects, and accessible contrast.
+- **Accessible motion**: Existing drag-settle behavior remains; hover motion is
   simplified by removing lift/scale effects. Reduced-motion behavior stays
   immediate.
 - **Next.js discipline**: Checked local Next.js 16 docs for CSS usage in the

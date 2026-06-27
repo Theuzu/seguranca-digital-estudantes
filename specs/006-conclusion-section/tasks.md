@@ -61,7 +61,7 @@
 
 ### Checks for User Story 1
 
-- [X] T021 [P] [US1] Verify `app/page.tsx` keeps top-level order Hero, Content, Conclusion and does not add a fourth section
+- [X] T021 [P] [US1] Verify `app/page.tsx` keeps the single-page journey order and does not add an unrelated page region
 - [X] T022 [P] [US1] Verify 390px, 768px, and 1280px closing-message layout has no clipping, overlap, or horizontal overflow using `specs/006-conclusion-section/quickstart.md`
 - [X] T023 [P] [US1] Verify reduced-motion mode shows closing content immediately with no entrance translation in `app/components/ConclusionSection.tsx`
 
@@ -123,7 +123,7 @@
 **Purpose**: Validate the full feature against responsiveness, accessibility, motion, copy accuracy, and build health.
 
 - [X] T041 [P] Compare all visible pt-BR strings in `data/conclusion.ts` against `specs/006-conclusion-section/spec.md`
-- [X] T042 [P] Verify `app/components/ConclusionSection.module.css` uses existing palette, typography, 1440px max container, 48px desktop padding, and 24px mobile padding from `theme-vibe.md`
+- [X] T042 [P] Verify `app/components/ConclusionSection.module.css` uses the existing palette, typography, container, and responsive padding from `design.md`
 - [X] T043 Verify all entrance motion in `app/components/ConclusionSection.tsx` completes within 300ms and uses at most 16px vertical translation
 - [X] T044 Verify all CTA interaction transitions in `app/components/ConclusionSection.module.css` complete within 250ms
 - [X] T045 Verify no backend route, embedded form, analytics, submission tracking, or new external integration was added under `app/`
@@ -195,7 +195,7 @@ Task C: T040 Verify footer and thank-you responsive reflow using quickstart.md
 
 ### MVP First
 
-Complete Phase 1, Phase 2, and Phase 3. This creates the third top-level Conclusion section with the approved closing message and validates it independently.
+Complete Phase 1, Phase 2, and Phase 3. This creates the conclusion/evaluation flow with the approved closing message and validates it independently.
 
 ### Incremental Delivery
 
@@ -207,7 +207,7 @@ Complete Phase 1, Phase 2, and Phase 3. This creates the third top-level Conclus
 ### Scope Guardrails
 
 - Keep public copy in pt-BR and docs/tasks in English.
-- Keep exactly three top-level sections: Hero, Content, Conclusion.
+- Keep the approved single-page narrative architecture.
 - Keep all Conclusion copy and form configuration in `data/conclusion.ts`.
 - Use no new dependency.
 - Do not add backend routes, embedded forms, analytics, quizzes, accounts, or tracking.

@@ -86,7 +86,7 @@ A student reaches the expanded section and reads a centered introduction explain
 
 ### Functional Requirements
 
-- **FR-001**: The site MUST add this experience as the second top-level section, mapped to the existing Content section.
+- **FR-001**: The site MUST add this experience as the educational-journey introduction in the single-page narrative.
 - **FR-002**: The Content section MUST first appear as a shallow inset card approximately 10% of the viewport height, with at least 8% horizontal inset on desktop and at least 5% on mobile.
 - **FR-003**: The Hero MUST remain fixed in the viewport while the card stays pinned above it and increases in size in direct response to forward scroll progress until it visually occupies the full viewport.
 - **FR-004**: The card expansion MUST reverse in response to backward scroll progress.
@@ -111,7 +111,7 @@ A student reaches the expanded section and reads a centered introduction explain
 
 ### Key Entities
 
-- **Content Section**: The second top-level page section, initially shown as an inset card and ultimately presented as a full-viewport reading surface.
+- **Educational Journey Introduction**: The opening content region of the educational journey, initially shown as an inset card and ultimately presented as a full-viewport reading surface.
 - **Introductory Copy**: The two supplied Portuguese paragraphs explaining student digital environments, common consequences, and the guide's practical purpose.
 - **Scroll Progress**: The visitor's position through the hero-to-content transition, determining how far the card has expanded.
 
@@ -139,4 +139,4 @@ A student reaches the expanded section and reads a centered introduction explain
 - The final expanded state fills the viewport visually; additional Content-section material may continue below in later features.
 - The exact copy supplied by the user is final for this introductory section.
 - Framer Motion is explicitly approved for this feature's later planning and implementation; no other new dependency is approved by this specification.
-- The existing Hero remains the first section, and the Conclusion remains the third top-level section.
+- The existing Hero remains in the Introduction macro phase, and the conclusion/evaluation flow remains outside this feature.

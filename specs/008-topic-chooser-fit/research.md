@@ -63,7 +63,7 @@ pixel accent, `#09112A` for the section surface, `#F5F6FA` for cards, `#4F7CFF`
 for card interaction color, and `#7EDB8A` for the title accent.
 
 **Rationale**: These fonts and colors are already wired into the project and
-match `theme-vibe.md` better than copying the reference's neon-green/crypto
+match `design.md` better than copying the reference's neon-green/crypto
 look. Using the existing palette keeps the section recognizable as part of the
 same website while still making the final title line feel distinct.
 

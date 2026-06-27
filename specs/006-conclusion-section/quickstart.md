@@ -37,7 +37,8 @@ Expected:
 npm run dev
 ```
 
-Open the local page and scroll through Hero, Content, and Conclusion.
+Open the local page and scroll through the Introduction, educational journey,
+and conclusion/evaluation flow.
 
 ## 4. Verify Content and Structure
 
@@ -47,7 +48,7 @@ Confirm:
 - Label, title, two safety paragraphs, evaluation copy, thank-you copy, and
   academic-purpose note exactly match the approved pt-BR content.
 - Academic-purpose note appears in the nested dark footer.
-- No fourth top-level section, new route, form embed, client-logo strip, badge,
+- No separate route, unrelated page region, form embed, client-logo strip, badge,
   or extra navigation appears.
 
 ## 5. Verify Responsive Layout
@@ -109,4 +110,3 @@ With reduced motion enabled:
 - Topic rail dragging, snapping, keyboard access, and destinations remain
   unchanged.
 - Existing smooth scrolling does not trap users before or inside Conclusion.
-

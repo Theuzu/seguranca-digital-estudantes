@@ -63,8 +63,8 @@ CSS may create desktop columns but must not reorder these groups.
 ### Desktop (1280x720 baseline)
 
 - Container uses up to 48px inline padding and never exceeds 1440px.
-- Closing and evaluation groups may use the 12-column rhythm from
-  `theme-vibe.md`.
+- Closing and evaluation groups may use the grid and container rhythm from
+  `design.md`.
 - Paragraph measures remain readable; empty decorative space is allowed and
   intentional.
 
@@ -102,4 +102,3 @@ CSS may create desktop columns but must not reorder these groups.
   contrasting close.
 - Do not reproduce reference branding, logos, client rows, side badges,
   navigation, neon/cyberpunk motifs, or unrelated content.
-

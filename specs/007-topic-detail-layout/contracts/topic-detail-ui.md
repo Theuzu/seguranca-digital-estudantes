@@ -9,7 +9,7 @@ Content section.
 
 - The layout appears inside the existing Content section, after the topic
   chooser.
-- It does not create a new route or top-level section.
+- It does not create a new route or unrelated page region.
 - `app/page.tsx` composes:
   1. Hero
   2. Content intro and chooser

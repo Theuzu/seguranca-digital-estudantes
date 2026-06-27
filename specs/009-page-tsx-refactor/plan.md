@@ -33,10 +33,17 @@ Refactor `page.tsx` from monolithic inline markup + data wiring into 3 thin chil
 *GATE: Passed before Phase 0 research. Re-checked after Phase 1 design.*
 
 - **Website/docs language split**: Public content unchanged. All planning artifacts in English.
-- **Three-section structure**: Refactor preserves exactly Hero, Content, Conclusion. Only extraction — no section creation, removal, or reorder.
-- **Data-file content model**: `data/content.ts` unchanged. Data imports move from `page.tsx` into `ContentSection.tsx`; no duplication.
-- **Theme compliance**: CSS → Tailwind preserves all existing theme colors, gradients, animations, responsive behavior. No new visual tokens.
-- **Clean animation**: Keyframes stay in globals.css. Reduced motion via `useReducedMotion()` (same pattern as ScrollExpandingSection).
+- **Single-page narrative architecture**: Refactor preserves the current
+  single-page flow and does not add routes or application scope. The extracted
+  children are an implementation detail, not a constitutional limit on page
+  regions.
+- **Data-driven topic content**: `data/content.ts` unchanged. Data imports move
+  from `page.tsx` into `ContentSection.tsx`; no duplication.
+- **Design compliance**: CSS -> Tailwind preserves existing colors, gradients,
+  animations, responsive behavior, and the current visual system. No new visual
+  tokens.
+- **Accessible motion**: Keyframes stay in globals.css. Reduced motion via
+  `useReducedMotion()` (same pattern as ScrollExpandingSection).
 - **Next.js discipline**: Checked `node_modules/next/dist/docs/01-app/01-getting-started/11-css.md` for CSS module vs global style rules in App Router. Tailwind v4 inline styles confirmed valid.
 - **Dependency restraint**: No dependencies added. React Icons, Motion, Tailwind CSS already present.
 - **Google Forms scope**: ConclusionSection untouched. Google Forms connection unchanged.

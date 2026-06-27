@@ -62,7 +62,7 @@
 - [X] T009 [US2] Add one native fragment link labeled `Ver orientações` per card plus the five matching heading-only destinations in supplied order so no visible control is a dead end in `app/components/TopicChooser.tsx`
 - [X] T010 [US2] Apply and verify one-column, two-column, and 1280px five-column layouts; immediate theme-compliant interaction colors; complete copy wrapping; and no motion or horizontal overflow using Scenarios 2 and 3 in `specs/004-topic-choice-cards/quickstart.md` against `app/components/TopicChooser.tsx`
 
-**Checkpoint**: User Stories 1 and 2 present complete, responsive theme choices without adding a new top-level section.
+**Checkpoint**: User Stories 1 and 2 present complete, responsive theme choices without adding a new route or unrelated page region.
 
 ---
 
@@ -87,7 +87,7 @@
 
 - [X] T013 [P] Review exact pt-BR copy, five-item order, preventive cybersecurity framing, typed ownership, and absence of fabricated guidance in `data/content.ts` against `specs/004-topic-choice-cards/spec.md`
 - [X] T014 [P] Run full responsive, 200% zoom, keyboard, touch, no-hover, reduced-motion, and existing scroll-transition regression pass from `specs/004-topic-choice-cards/quickstart.md` across `app/page.tsx`, `app/components/ScrollExpandingSection.tsx`, and `app/components/TopicChooser.tsx`
-- [X] T015 Verify `app/globals.css`, `package.json`, `package-lock.json`, and `app/page.tsx` contain no topic-specific global CSS, new dependency, fourth top-level section, Conclusion change, or Google Forms scope change
+- [X] T015 Verify `app/globals.css`, `package.json`, `package-lock.json`, and `app/page.tsx` contain no topic-specific global CSS, new dependency, unrelated page region, Conclusion change, or Google Forms scope change
 - [X] T016 Run final `npm run lint` and `npm run build` from `package.json`; record any unresolved failure in the implementation delivery summary
 
 ---
@@ -156,7 +156,7 @@ Task T014: Run browser regression across page and components
 ## Notes
 
 - Website copy remains Brazilian Portuguese; task documentation remains English.
-- Hero, Content, and Conclusion remain the only top-level sections.
+- The approved single-page narrative architecture remains intact.
 - Topic content stays in `data/content.ts`.
 - Existing Motion and Lenis behavior stays unchanged; chooser adds no animation.
 - Conclusion and Google Forms are explicitly outside this feature.

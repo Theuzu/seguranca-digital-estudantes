@@ -6,7 +6,14 @@
 
 ## Summary
 
-Improve the second top-level Content section so the Hero remains pinned as a stationary backdrop while a shallower Content card overlaps and expands above it. The initial card occupies `10svh`, uses `8vw` side insets, rounds only its top corners, and continues square-edged below the viewport. Scroll-linked Motion expands it to the full viewport and reveals the centered copy from 50% to 70% progress. Static presentation styles stay directly in components through Tailwind CSS utility classes; no section-specific CSS is added to `app/globals.css`.
+Improve the educational-journey introduction so the Hero remains pinned as a
+stationary backdrop while a shallower content card overlaps and expands above
+it. The initial card occupies `10svh`, uses `8vw` side insets, rounds only its
+top corners, and continues square-edged below the viewport. Scroll-linked Motion
+expands it to the full viewport and reveals the centered copy from 50% to 70%
+progress. Static presentation styles stay directly in components through
+Tailwind CSS utility classes; no section-specific CSS is added to
+`app/globals.css`.
 
 ## Technical Context
 
@@ -24,7 +31,13 @@ Improve the second top-level Content section so the Hero remains pinned as a sta
 
 **Performance Goals**: Scroll motion remains responsive on mobile and desktop; animation modifies layout-bounded values inside one isolated client component; Hero remains visually stationary; text is fully readable by 70% progress
 
-**Constraints**: Public copy in Brazilian Portuguese; documentation in English; one Hero, one Content section, one Conclusion; exact supplied copy; initial preview at `10svh` with `8vw` side insets; only top corners rounded; Hero pinned behind overlapping card; copy opacity mapped from 50% to 70%; static styling only through inline JSX Tailwind utility classes; dynamic scroll values only through Motion `style` bindings; separate section component; no backend, auth, database, or new service
+**Constraints**: Public copy in Brazilian Portuguese; documentation in English;
+approved single-page narrative architecture; exact supplied copy; initial
+preview at `10svh` with `8vw` side insets; only top corners rounded; Hero pinned
+behind overlapping card; copy opacity mapped from 50% to 70%; static styling
+only through inline JSX Tailwind utility classes; dynamic scroll values only
+through Motion `style` bindings; separate component; no backend, auth, database,
+or new service
 
 **Scale/Scope**: One new Content-section component, one typed content export, one dependency addition, and page composition changes only
 
@@ -33,10 +46,12 @@ Improve the second top-level Content section so the Hero remains pinned as a sta
 *GATE: Passed before Phase 0 research. Re-checked after Phase 1 design.*
 
 - **Website/docs language split**: Exact student-facing paragraphs remain pt-BR in `data/content.ts`; all feature artifacts remain English.
-- **Three-section structure**: Feature adds only the second top-level Content section. Existing Hero remains first; Conclusion remains reserved as third and is not implemented here.
-- **Data-file content model**: `data/content.ts` owns the two-paragraph introductory copy and its stable section identifier.
-- **Theme compliance**: Card uses the light surface, dark readable text, large modern body typography, subtle rounded retro-panel treatment, and no hacker/cyberpunk imagery.
-- **Clean animation**: One scroll-linked expansion and an earlier 50%-to-70% text fade; both reversible. Hero stays visually stationary, and reduced-motion users receive the full card and copy immediately.
+- **Single-page narrative architecture**: Feature adds only the
+  educational-journey introduction. Existing hero remains in the Introduction
+  macro phase; conclusion/evaluation remains outside this feature.
+- **Data-driven topic content**: `data/content.ts` owns the two-paragraph introductory copy and its stable section identifier.
+- **Design compliance**: Card uses the light surface, dark readable text, large modern body typography, subtle rounded treatment, and no hacker/cyberpunk imagery.
+- **Accessible motion**: One scroll-linked expansion and an earlier 50%-to-70% text fade; both reversible. Hero stays visually stationary, and reduced-motion users receive the full card and copy immediately.
 - **Next.js discipline**: Read local Next.js 16 guides for Server/Client Components and CSS under `node_modules/next/dist/docs/01-app/01-getting-started/`.
 - **Dependency restraint**: `motion` is new but explicitly requested and approved by the user. No other dependency is added.
 - **Google Forms scope**: Conclusion is untouched; no form integration appears in this feature.

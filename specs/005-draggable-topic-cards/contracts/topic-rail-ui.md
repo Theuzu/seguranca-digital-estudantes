@@ -21,7 +21,7 @@ type TopicChooserProps = {
 - `ScrollExpandingSection` remains the existing Content-section and Motion
   boundary.
 - Hero stays first; Content intro and chooser stay second; Conclusion remains
-  separate third-section scope.
+  separate conclusion/evaluation scope.
 - Existing scroll-expansion geometry and timing do not change.
 
 ## Content Contract

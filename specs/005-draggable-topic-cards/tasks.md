@@ -196,6 +196,7 @@ Task B: T017 keyboard, semantics, zoom, and focus checks
 - Public copy stays Brazilian Portuguese; tasks/docs stay English.
 - Add no dependency. Reuse `react-icons`, Motion reduced-motion support, and
   browser APIs already available.
-- Keep exactly Hero, Content, and Conclusion; this feature changes Content only.
+- Keep the approved single-page narrative architecture; this feature changes the
+  topic-choice portion of the educational journey only.
 - Do not add detailed guidance, routes, backend, forms, search, auth, or data
   collection.

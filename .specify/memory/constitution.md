@@ -1,25 +1,33 @@
 <!--
 Sync Impact Report
-Version change: 1.0.0 -> 1.1.0
+Version change: 1.1.0 -> 2.0.0
 Modified principles:
-- Previous principle I -> I. Portuguese Website, English Documentation
-- Previous principle II -> II. Three-Section Structure and Data Files
-- Previous principle III -> III. Clean Motion and theme-vibe.md
-- Previous principle IV -> IV. Next.js Discipline and Approved Dependencies
-- Previous principle V -> V. Academic and Responsible Cybersecurity
-Added sections:
-- Explicit Google Forms requirement for the Conclusion section
-- English documentation rule across docs, specs, plans, tasks, and README
-- Data-file content ownership rule
-Removed sections:
-- Portuguese-language documentation wording from v1.0.0
-Templates requiring updates:
+- II. Three-Section Structure and Data Files -> II. Data-Driven Educational Journey
+- III. Clean Motion and theme-vibe.md -> III. Binding Design System and Accessible Motion
+- Principle IV strengthened for responsive, performance, progressive enhancement, and dependency discipline
+Preserved principles:
+- Portuguese interface and English documentation
+- Academic and responsible cybersecurity
+Added:
+- design.md as the sole design source of truth
+- Detailed information-architecture delegation
+- Accessibility and reduced-motion requirements
+- Sticky guidance-card constraints
+- Responsive test expectations
+- Design-system and performance rules
+- Stronger definition of done
+Removed:
+- Exact three rendered top-level sections
+- Active dependency on theme-vibe.md
+Templates and documentation requiring review or update:
 - updated: .specify/templates/plan-template.md
 - updated: .specify/templates/spec-template.md
 - updated: .specify/templates/tasks-template.md
-- reviewed/no update needed: .specify/templates/checklist-template.md
+- updated: .specify/templates/checklist-template.md
 - not present: .specify/templates/commands/*.md
 - updated: README.md
+- updated: AGENTS.md
+- updated: active specs, plans, tasks, contracts, research, and quickstart files containing theme-vibe.md or the old three-section rule
 Follow-up TODOs:
 - None.
 -->
@@ -27,97 +35,215 @@ Follow-up TODOs:
 
 ## Core Principles
 
-### I. Portuguese Website, English Documentation
+### I. Portuguese Interface, English Documentation
 
-All public website content MUST be written in clear Brazilian Portuguese for
-students and cybersecurity beginners. All project documentation MUST be written
-in English, including specs, plans, tasks, README files, governance notes, and
-implementation guidance. Cybersecurity terms used on the website MUST be
-explained in context without assuming prior knowledge.
+All public interface and website content MUST be written in clear Brazilian
+Portuguese for students and cybersecurity beginners. Cybersecurity terminology
+MUST be explained in context without assuming prior knowledge. Project
+documentation MUST be written in English, including specs, plans, tasks, README
+files, governance notes, and agent guidance.
 
-Rationale: the academic audience reads the site in Portuguese, while the project
-documents remain consistent with the repository workflow and agent tooling.
+Rationale: the public learning experience serves Brazilian students, while the
+repository workflow stays consistent for planning, review, and agent handoff.
 
-### II. Three-Section Structure and Data Files
+### II. Data-Driven Educational Journey
 
-The main website experience MUST preserve exactly three top-level sections:
-Hero, Content, and Conclusion. Cybersecurity topics MUST live inside the Content
-section and MUST be divided through typed content files under `data/`, such as
-`data/*.ts`. The Conclusion section MUST include the project closing content and
-a connected Google Forms entry point through a link or embed, without requiring
-a backend integration.
+The website MUST remain one coherent, responsive, single-page educational
+journey. It preserves three conceptual macro phases: Introduction, educational
+journey, and conclusion/evaluation. The rendered page MUST NOT be constrained to
+exactly three top-level sections; detailed information architecture, including
+skip link, header, hero, project introduction, five-topic overview, five topic
+chapters, problem presentation, guidance sequence, checklist, next-topic
+transitions, final summary, Google Forms evaluation call to action,
+acknowledgment, and footer, is governed by `design.md`.
 
-Rationale: the project is a simple academic website, so content ownership stays
-clear and the page remains easy to present.
+Cybersecurity content MUST be owned by typed data files under `data/`, such as
+`data/*.ts`. The five topics and their educational order MUST remain
+data-driven rather than hardcoded into five unrelated components. Each topic
+MUST preserve the recognizable model: `O problema`; `Como se proteger` or
+`Como agir` with three practical guidance entries; and `Checklist`. Layout
+components may determine presentation, but educational copy MUST remain
+centralized in the content data model whenever practical.
 
-### III. Clean Motion and theme-vibe.md
+Rationale: the site is an academic narrative, not a dashboard or application
+shell, and centralized content keeps the educational message reviewable.
 
-All visual decisions MUST follow `theme-vibe.md`: 80% modern UI, 20% retro
-computing influence, educational tone, trustworthy presentation, and accessible
-reading. Animations MUST be clean, purposeful, and lightweight. Motion MUST NOT
-reduce readability, keyboard navigation, responsiveness, performance, or WCAG AA
-contrast.
+### III. Binding Design System and Accessible Motion
 
-Rationale: animation supports comprehension and polish, but the educational
-content remains the priority.
+`design.md` is the sole binding design and implementation specification for
+visual identity, information architecture, layout, responsive behavior, design
+tokens, typography, imagery, component presentation, sticky-card behavior,
+motion, reduced-motion alternatives, accessibility, performance expectations,
+and design acceptance criteria. Statements marked `must`, `must not`,
+`required`, or `do not` in `design.md` are hard constraints. `theme-vibe.md` is
+obsolete and MUST NOT be used as active guidance.
 
-### IV. Next.js Discipline and Approved Dependencies
+When requirements conflict, work MUST use this priority order:
+
+1. Content clarity and semantic structure.
+2. Accessibility and reduced-motion behavior.
+3. Responsive layout and touch usability.
+4. Visual hierarchy.
+5. Animation and decorative effects.
+
+No implementation may sacrifice the first three priorities to preserve an
+effect. Essential information MUST NOT depend on hover, animation, JavaScript
+scroll effects, or a high-performance device. The site MUST remain readable and
+functional without scroll-driven animation, and reduced-motion behavior is
+mandatory. AppyCamper is a design-principle reference only and MUST NOT be
+copied in branding, assets, source code, exact compositions, or illustrations.
+
+The experience MUST be editorial and chapter-based, not dashboard-like. The
+visitor MUST understand the subject, current topic, remaining progression, key
+action, and route to the evaluation form. All five topics MUST be directly
+discoverable and navigable. Every topic needs a clear beginning, ending, and
+transition. Long-form text MUST use constrained reading widths. The layout MUST
+NOT rely on horizontal scrolling. Text and controls MUST remain usable at 200%
+zoom. The header MUST NOT obscure anchor targets. The final evaluation CTA MUST
+have strong visual priority. The site MUST NOT wrap every content block in a
+disconnected floating card.
+
+Guidance sequences MUST follow the sticky-card model defined in `design.md`: the
+guidance heading appears above the sequence; the stack is centered; every card
+uses the same sticky top position; incoming cards fully cover previous cards at
+the sticky point; card backgrounds are opaque; content from different cards MUST
+NOT visually mix; future cards may remain naturally visible below the active
+card; mobile preserves readability without horizontal overflow; and
+reduced-motion mode uses a readable static sequence without large empty scroll
+tracks.
+
+The website MUST use a cohesive design system. Design tokens MUST be centralized.
+Space Grotesk remains the display heading font when configured; Silkscreen is
+limited to short labels and counters; body copy uses a readable sans-serif; and
+no additional font family may be added without approval. The palette MUST remain
+a restrained dark-sky cybersecurity palette with one primary accent color. Red
+is reserved for warning or dangerous behavior. Borders, spacing, containers,
+typography scales, and topic imagery treatment MUST remain consistent. The
+visual cliches prohibited by `design.md`, including Matrix-style code rain,
+hooded hacker stock imagery, excessive neon, dashboard widget grids, fake
+terminal reading containers, glowing borders everywhere, unrelated topic color
+systems, purposeless 3D objects, large glassmorphism text surfaces, and
+animations that delay reading, MUST NOT be introduced.
+
+Accessibility failures block completion even when the visual result appears
+correct. The minimum target is WCAG AA with semantic HTML, correct heading
+hierarchy, a functional skip link, visible keyboard focus, complete keyboard
+navigation, practical touch targets of approximately 44px or larger, body text
+of at least 16px, sufficient contrast, correct image alternative-text behavior,
+no hover-only essential content, no keyboard traps, accessible mobile navigation
+when present, usable 200% zoom layouts, `prefers-reduced-motion` support, and a
+readable static fallback for motion-driven sections.
+
+### IV. Next.js Discipline and Controlled Dependencies
 
 Implementation MUST respect the installed Next.js version and the instructions
-in `AGENTS.md`: before changing Next.js code, read the relevant guide under
-`node_modules/next/dist/docs/`. Extra dependencies MUST NOT be added without
-explicit user approval. The project MUST use the current stack when it is enough
-for static content, styling, animation, and the Google Forms connection.
+in `AGENTS.md`. When repository instructions require it, agents MUST read the
+relevant local Next.js documentation under `node_modules/next/dist/docs/` before
+changing framework-specific behavior. The project MUST reuse React, TypeScript,
+Tailwind CSS, Motion, and existing utilities before adding anything new.
 
-Rationale: the site has a narrow scope and does not need technical churn unless
-the user approves it.
+No animation library, component system, CSS-in-JS solution, WebGL library, page
+builder, state framework, backend service, or heavy dependency may be introduced
+without explicit approval. Prefer server components unless client-side behavior
+is required, and isolate client components to the smallest reasonable boundary.
+The site MUST remain statically deployable to Vercel.
+
+Responsive and performance work MUST follow `design.md`: verify narrow mobile,
+standard mobile, tablet, desktop, wide desktop, short landscape screens, and
+200% zoom; prevent horizontal page overflow; wrap Portuguese titles
+intentionally; avoid clipped card content; keep decorative objects away from
+essential text; use content-driven breakpoints; reserve image dimensions; lazy
+load below-the-fold imagery where appropriate; prioritize `transform` and
+`opacity` for animation; avoid unnecessary permanent animation loops; avoid
+WebGL, canvas, autoplay video, or sound for essential content; keep essential
+content visible without JavaScript-driven animation; and avoid unapproved heavy
+dependencies.
+
+Rationale: the project has a narrow academic scope and should stay fast,
+portable, reviewable, and simple to deploy.
 
 ### V. Academic and Responsible Cybersecurity
 
-Cybersecurity content MUST be framed as academic digital literacy, prevention,
-and critical thinking. Examples about threats, phishing, malware, passwords, or
-social engineering MUST avoid operational instructions that enable abuse. The
-site MUST emphasize safe habits, source verification, privacy, and responsible
-technology use.
+Cybersecurity content MUST remain focused on digital literacy, prevention,
+privacy, source verification, safe student habits, respectful online
+interaction, and critical thinking. It MUST NOT include offensive-security
+instructions, exploit workflows, credential theft procedures, malware
+implementation, evasion advice, or operational material that enables abuse. The
+project MUST NOT invent statistics, claims, sources, institutional data, or
+security guarantees.
 
-Rationale: the project teaches students without romanticizing attacks or turning
-the site into offensive security material.
+Rationale: the project teaches students practical safety without romanticizing
+attacks or producing material that could be misused.
 
 ## Product Scope and Constraints
 
-This is an academic Next.js website using the repository's existing React,
-TypeScript, and Tailwind CSS setup. The core experience is one clear page with:
+The project is a responsive, single-page academic website. It uses one
+continuous educational experience with three conceptual macro phases:
 
-- Hero: introduces the website and its academic purpose.
-- Content: presents cybersecurity themes for students, sourced from `data/*.ts`
-  files.
-- Conclusion: closes the presentation and connects to Google Forms.
+- Introduction: subject, academic context, and purpose.
+- Educational journey: five data-driven topic chapters with overview,
+  problem/action/checklist rhythm, and direct navigation.
+- Conclusion and evaluation: final summary, prominent Google Forms evaluation
+  CTA, acknowledgment, and footer.
 
-The project MUST stay focused on static/editorial content, responsive layout,
-accessibility, and clean animations. Authentication, databases, admin panels,
-complex quizzes, course platforms, simulators, and external service integrations
-beyond the Google Forms entry point MUST remain out of scope unless explicitly
+The detailed order and behavior of the page are governed by `design.md`. Google
+Forms remains the only required external connection and MUST appear near the end
+of the journey through an accessible link or embed.
+
+Authentication, user accounts, databases, admin interfaces, full course
+platforms, complex quizzes, cybersecurity simulators, gamification systems,
+additional external service integrations, separate routes for each topic, and a
+custom backend for the evaluation form are out of scope unless explicitly
 approved.
 
 ## Development Workflow and Quality
 
-Before planning or implementing a feature, work MUST check this constitution,
-`theme-vibe.md`, `AGENTS.md`, and the current plan when one exists. Specs and
-plans MUST state how they preserve the Hero, Content, and Conclusion structure,
-keep website copy in Brazilian Portuguese, keep docs in English, use `data/*.ts`
-for content, avoid unapproved dependencies, and connect Google Forms only from
-the Conclusion section.
+Before planning or implementing work, agents MUST read:
 
-Code changes MUST run `npm run lint` and `npm run build` when the scope touches
-components, pages, styles, configuration, dependencies, or content imports. If a
-command cannot run in the current environment, the delivery summary MUST record
-the limitation.
+1. This constitution.
+2. `design.md`.
+3. `AGENTS.md`.
+4. The current feature spec and plan, when present.
+5. Relevant local framework documentation, including Next.js docs when required.
+
+Specs and plans MUST explicitly check Brazilian Portuguese interface copy,
+English documentation, data-driven topic content, single-page narrative
+architecture, compliance with `design.md`, responsive and reduced-motion
+behavior, accessibility, Google Forms placement, dependency restrictions, and
+academic cybersecurity scope. Implementation tasks MUST NOT begin with complex
+hero animation before page hierarchy, topic navigation, guidance-card behavior,
+and static accessibility are stable.
+
+For changes affecting components, pages, styles, configuration, dependencies,
+content imports, navigation, or animation, delivery MUST include `npm run lint`
+and `npm run build`. Manual verification MUST cover keyboard navigation, skip
+link, focus visibility, topic anchors, sticky guidance sequence, reduced-motion
+behavior, mobile layout, short landscape layout, 200% zoom, no horizontal
+overflow, Google Forms CTA, image alternative text, and content visibility
+without animation. If a command or manual check cannot be completed, the
+delivery report MUST state exactly what was not verified and why.
+
+A feature is not complete merely because it builds. Completion requires
+constitution compliance, all applicable hard constraints in `design.md`,
+preserved educational meaning, correct responsive behavior, keyboard
+accessibility, reduced-motion support, no unintended overflow or clipping, no
+unapproved dependency, lint and build results, and a delivery summary listing
+files changed, components added or removed, major design decisions, validation
+completed, and known limitations.
 
 ## Governance
 
-This constitution governs project scope, content, design, documentation, and
-implementation decisions. In case of conflict, it supersedes informal
-preferences, generic templates, and boilerplate documentation.
+This constitution governs product values, scope, durable engineering rules,
+content, documentation, design compliance, and implementation decisions. In case
+of conflict, precedence is:
+
+1. This constitution for product values, scope, and durable engineering rules.
+2. `design.md` for detailed visual and interaction implementation.
+3. Feature specs and plans for approved feature-specific behavior.
+4. Informal preferences and generic boilerplate.
+
+A feature document may refine `design.md`, but it may not silently contradict it.
+A deliberate exception MUST be identified in the spec and explicitly approved.
 
 Amendments MUST document the change, rationale, impacted files, and version
 classification:
@@ -127,9 +253,12 @@ classification:
 - PATCH for wording, clarification, or correction without changing rules.
 
 Every relevant spec, plan, or task list MUST include a compliance check against
-these principles. Reviews MUST reject changes that add unnecessary complexity,
-move documentation back to Portuguese, ignore `theme-vibe.md`, break the three
-section structure, bypass the `data/*.ts` content model, or add dependencies
-without approval.
+these principles. Reviews MUST reject work that ignores `design.md`, references
+`theme-vibe.md` as active guidance, breaks the data-driven content model,
+hardcodes the five topics unnecessarily, hides essential content behind
+animation or hover, lacks reduced-motion behavior, causes horizontal overflow or
+clipping, weakens the evaluation CTA, violates the interface/documentation
+language split, adds unapproved dependencies, introduces unnecessary application
+complexity, or leaves accessibility failures unresolved.
 
-**Version**: 1.1.0 | **Ratified**: 2026-06-16 | **Last Amended**: 2026-06-16
+**Version**: 2.0.0 | **Ratified**: 2026-06-16 | **Last Amended**: 2026-06-26

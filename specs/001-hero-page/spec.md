@@ -31,7 +31,7 @@ A visitor sees a visual style that feels modern, educational, trustworthy, and l
 
 **Why this priority**: The project identity depends on balancing cybersecurity culture with approachability for students.
 
-**Independent Test**: Can be tested by comparing the hero against `theme-vibe.md` and confirming the page uses soft surfaces, readable contrast, and restrained retro accents.
+**Independent Test**: Can be tested by comparing the hero against `design.md` and confirming the page uses readable contrast, restrained cybersecurity styling, and accessible motion.
 
 **Acceptance Scenarios**:
 
@@ -70,7 +70,7 @@ A visitor sees lightweight animations that make the hero feel polished without h
 - **FR-004**: The hero MUST display "Seguranca Digital para Estudantes" as the primary text.
 - **FR-005**: The hero MUST display "UNIFBV Wyden - Matheus Maranhao" as the secondary text.
 - **FR-006**: The hero MUST follow the provided reference layout direction: centered composition, large rounded visual stage, small label treatment, oversized display title, and supporting text below.
-- **FR-007**: The hero MUST respect `theme-vibe.md`, including modern educational tone, accessible contrast, and restrained retro-computing influence.
+- **FR-007**: The hero MUST respect `design.md`, including educational tone, accessible contrast, restrained dark-sky cybersecurity styling, and reduced-motion behavior.
 - **FR-008**: The hero MUST include simple, purposeful animations that do not reduce readability.
 - **FR-009**: The hero MUST remain readable and visually coherent on mobile and desktop viewports.
 - **FR-010**: The feature MUST avoid new dependencies unless the user explicitly approves them.

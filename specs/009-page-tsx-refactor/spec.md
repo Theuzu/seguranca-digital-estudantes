@@ -12,7 +12,7 @@
 
 ### User Story 1 - Read and Maintain page.tsx as a Thin Shell (Priority: P1)
 
-A developer opens `page.tsx` and sees only top-level section assembly with no inline section markup, no data-wiring props, and no CSS class references to global hero styles.
+A developer opens `page.tsx` and sees only extracted page-region assembly with no inline section markup, no data-wiring props, and no CSS class references to global hero styles.
 
 **Why this priority**: The core goal is extracting concerns out of `page.tsx`. This story defines the primary success condition.
 
@@ -20,7 +20,7 @@ A developer opens `page.tsx` and sees only top-level section assembly with no in
 
 **Acceptance Scenarios**:
 
-1. **Given** the refactored page is loaded, **When** a developer opens `page.tsx`, **Then** the file contains exactly three top-level children: `<HeroSection />`, `<ContentSection />`, and `<ConclusionSection />`.
+1. **Given** the refactored page is loaded, **When** a developer opens `page.tsx`, **Then** the file contains the expected extracted page-region children: `<HeroSection />`, `<ContentSection />`, and `<ConclusionSection />`.
 2. **Given** the refactored page is loaded, **When** a developer inspects `page.tsx`, **Then** no inline hero markup (title, subtitle, GitHub icon, hero divs) exists in the file.
 3. **Given** the refactored page is loaded, **When** a developer inspects `page.tsx`, **Then** no data imports such as `contentIntro`, `topicChooser`, or `topicDetails` are present.
 
@@ -85,7 +85,7 @@ A developer audits the project styles and finds no dead hero-related selectors i
 
 ### Functional Requirements
 
-- **FR-001**: The refactored `page.tsx` MUST render exactly three top-level components: `<HeroSection />`, `<ContentSection />`, and `<ConclusionSection />`.
+- **FR-001**: The refactored `page.tsx` MUST render the expected extracted page-region components for this refactor: `<HeroSection />`, `<ContentSection />`, and `<ConclusionSection />`. This is an implementation target for this feature, not a project-wide limit on future page regions.
 - **FR-002**: The `HeroSection` component MUST contain all hero JSX currently inline in `page.tsx` (hero stage, grain, clouds, frame, content div, title, subtitle, GitHub icon span).
 - **FR-003**: The `HeroSection` component MUST apply all hero visual styling through Tailwind CSS utility classes or inline `style` objects, replacing every `.hero-*` class selector.
 - **FR-004**: The `HeroSection` component MUST visually preserve the effect of CSS pseudo-elements (`::before` and `::after` on `.hero-stage` and `.hero-content`) through either Tailwind `before:`/`after:` variants, explicit `<div>` elements, or inline `style` objects.
@@ -108,7 +108,7 @@ A developer audits the project styles and finds no dead hero-related selectors i
 
 ### Key Entities
 
-- **page.tsx**: The App Router home page that currently assembles all sections. After refactoring, it becomes a thin shell composing `<HeroSection />`, `<ContentSection />`, and `<ConclusionSection />`.
+- **page.tsx**: The App Router home page that currently assembles page regions. After refactoring, it becomes a thin shell composing `<HeroSection />`, `<ContentSection />`, and `<ConclusionSection />`.
 - **HeroSection**: New component extracted from inline `page.tsx` markup, owning all hero presentation and styling.
 - **ContentSection**: New server component encapsulating `ScrollExpandingSection`, `TopicChooser`, and `TopicDetailSection` composition.
 - **Hero CSS Classes**: The set of `.hero-*` selectors in `globals.css` that must be converted to Tailwind inline styles and then removed from the global stylesheet.
@@ -119,7 +119,7 @@ A developer audits the project styles and finds no dead hero-related selectors i
 
 ### Measurable Outcomes
 
-- **SC-001**: `page.tsx` contains exactly 3 top-level JSX children (`<HeroSection />`, `<ContentSection />`, `<ConclusionSection />`) post-refactor.
+- **SC-001**: `page.tsx` contains only the expected extracted page-region JSX children (`<HeroSection />`, `<ContentSection />`, `<ConclusionSection />`) post-refactor.
 - **SC-002**: `globals.css` contains zero `.hero-` class selectors after hero style extraction.
 - **SC-003**: A `git diff` on the rendered page output shows zero differences when comparing pre-refactor and post-refactor builds (visual preservation verified by snapshot or manual comparison).
 - **SC-004**: `npm run build` completes without errors.

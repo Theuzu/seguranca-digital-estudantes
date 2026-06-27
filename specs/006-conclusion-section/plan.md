@@ -40,8 +40,8 @@ desktop browsers
 entrance motion completes in 300 milliseconds or less; no layout shift,
 scroll-triggered state loop, form script, or external resource is introduced
 
-**Constraints**: pt-BR public copy; English docs; exactly Hero, Content, and
-Conclusion; content in `data/*.ts`; Google Forms via direct external link only;
+**Constraints**: pt-BR public copy; English docs; approved single-page
+narrative architecture; content in `data/*.ts`; Google Forms via direct external link only;
 placeholder must not navigate; WCAG AA; 24px mobile and 48px desktop inline
 container padding; simple motion no longer than 350ms; no new dependency;
 existing Hero and Content behavior preserved
@@ -56,18 +56,18 @@ data flow
 
 - **Website/docs language split**: Exact user-facing copy remains pt-BR in
   `data/conclusion.ts`; all Feature 006 documents remain English.
-- **Three-section structure**: `app/page.tsx` composes Conclusion once after the
-  existing `ScrollExpandingSection`; Hero and Content remain the first two
-  top-level sections. The academic footer stays nested inside Conclusion and
-  does not become a fourth section.
-- **Data-file content model**: `data/conclusion.ts` owns label, headings,
+- **Single-page narrative architecture**: `app/page.tsx` composes the
+  conclusion/evaluation flow once after the current educational journey without
+  adding new routes, modals, or unrelated page regions. The academic footer stays
+  nested inside the ending flow.
+- **Data-driven topic content**: `data/conclusion.ts` owns label, headings,
   paragraphs, CTA label, nullable form URL, thank-you copy, and footer note.
-- **Theme compliance**: Cloud gray/light surfaces support the editorial body,
+- **Design compliance**: Cloud gray/light surfaces support the editorial body,
   educational blue distinguishes the evaluation callout, dark surface closes
   the page, Space Grotesk handles display copy, Inter handles paragraphs, and
   Silkscreen is limited to the small uppercase label/retro mark. The result
   keeps the 80/20 modern-retro balance.
-- **Clean animation**: Motion applies one short opacity/vertical transition to
+- **Accessible motion**: Motion applies one short opacity/vertical transition to
   each major content block, never to individual paragraph lines. Duration is
   300ms or less; `useReducedMotion` removes transforms and delays.
 - **Next.js discipline**: Checked local Next.js 16 guides for Server and Client
@@ -106,7 +106,7 @@ specs/006-conclusion-section/
 
 ```text
 app/
-|-- page.tsx                       # append third top-level Conclusion
+|-- page.tsx                       # append conclusion/evaluation flow
 |-- components/
 |   |-- ConclusionSection.tsx      # new focused motion/semantic boundary
 |   |-- ConclusionSection.module.css # new responsive component styling
@@ -168,4 +168,3 @@ treatment does not match the requested simple close.
 
 No constitution violation. Existing packages, static content, a narrow Client
 Component, native external navigation, and scoped CSS cover the feature.
-

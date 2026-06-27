@@ -2,7 +2,7 @@
 
 ## ContentIntro
 
-Static, serializable content consumed by the second top-level section.
+Static, serializable content consumed by the educational-journey introduction.
 
 | Field | Type | Rules |
 |-------|------|-------|

@@ -6,7 +6,13 @@
 
 ## Summary
 
-Extend the existing second top-level Content section after its scroll-expanding introduction with a server-rendered topic chooser. The chooser uses one asymmetric editorial heading area, a responsive five-card grid, native same-page fragment links styled as controls, and five matching heading-only destinations. Typed copy remains in `data/content.ts`; static styling remains in JSX Tailwind utilities; no new dependency, animation, icon, route, backend, or detailed guidance copy is added.
+Extend the educational-journey portion of the single-page experience after its
+scroll-expanding introduction with a server-rendered topic chooser. The chooser
+uses one asymmetric editorial heading area, a responsive five-card grid, native
+same-page fragment links styled as controls, and five matching heading-only
+destinations. Typed copy remains in `data/content.ts`; static styling remains in
+JSX Tailwind utilities; no new dependency, animation, icon, route, backend, or
+detailed guidance copy is added.
 
 ## Technical Context
 
@@ -24,7 +30,12 @@ Extend the existing second top-level Content section after its scroll-expanding 
 
 **Performance Goals**: Chooser ships as server-rendered markup with no new client state, effects, animation, route fetch, or dependency; all five cards remain immediately readable after the existing transition completes
 
-**Constraints**: Brazilian Portuguese public copy; English documentation; exactly one Hero, one Content section, and one Conclusion; five ordered topics; heading-only in-page destinations; no icons, illustrations, decorative elements, carousel, animation choreography, detailed guidance, or dead controls; responsive at 390px and 1280px; WCAG AA contrast; no new dependencies; no changes to Conclusion or Google Forms scope
+**Constraints**: Brazilian Portuguese public copy; English documentation;
+approved single-page narrative architecture; five ordered topics; heading-only
+in-page destinations; no icons, illustrations, decorative elements, carousel,
+animation choreography, detailed guidance, or dead controls; responsive at 390px
+and 1280px; WCAG AA contrast; no new dependencies; no changes to the
+conclusion/evaluation flow or Google Forms scope
 
 **Scale/Scope**: One five-item typed content tuple, one server component, one existing client component adjusted to accept server-rendered children, and page composition updates
 
@@ -33,10 +44,12 @@ Extend the existing second top-level Content section after its scroll-expanding 
 *GATE: Passed before Phase 0 research. Re-checked after Phase 1 design.*
 
 - **Website/docs language split**: Card, heading, and CTA copy remain pt-BR in `data/content.ts`; plan artifacts remain English.
-- **Three-section structure**: Chooser and destinations stay inside the existing Content section. Hero and Conclusion remain untouched.
-- **Data-file content model**: `data/content.ts` owns chooser ID, heading, CTA label, five stable topic IDs, titles, and descriptions.
-- **Theme compliance**: Layout uses current cloud-gray, light surface, dark text, educational blue, Space Grotesk/Inter hierarchy, rounded cards, firm borders, and restrained retro control treatment.
-- **Clean animation**: No chooser or card animation is introduced. Native fragment navigation is used; existing scroll-expansion and reduced-motion behavior remain unchanged.
+- **Single-page narrative architecture**: Chooser and destinations stay inside
+  the educational-journey flow. Introduction and conclusion/evaluation remain
+  untouched.
+- **Data-driven topic content**: `data/content.ts` owns chooser ID, heading, CTA label, five stable topic IDs, titles, and descriptions.
+- **Design compliance**: Layout uses current cloud-gray, light surface, dark text, educational blue, Space Grotesk/Inter hierarchy, rounded cards, firm borders, and restrained technical control treatment.
+- **Accessible motion**: No chooser or card animation is introduced. Native fragment navigation is used; existing scroll-expansion and reduced-motion behavior remain unchanged.
 - **Next.js discipline**: Checked local Next.js 16 guides for Linking and Navigating, Server and Client Components, CSS, and Accessibility under `node_modules/next/dist/docs/`.
 - **Dependency restraint**: Existing platform features and Tailwind utilities cover the feature. No package change is planned.
 - **Google Forms scope**: Conclusion is not modified. Google Forms remains reserved for the Conclusion feature.
@@ -94,4 +107,3 @@ AGENTS.md
 ## Complexity Tracking
 
 No constitution violation. Design reuses existing files, dependencies, one-page structure, and Server/Client boundaries.
-

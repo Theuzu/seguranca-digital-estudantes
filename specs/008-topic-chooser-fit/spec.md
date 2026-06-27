@@ -70,7 +70,7 @@ A student on mouse, touch, or keyboard can use the topic cards in a responsive l
 
 ### Functional Requirements
 
-- **FR-001**: The refresh MUST update the existing topic chooser inside the Content section without changing the Hero or Conclusion top-level sections.
+- **FR-001**: The refresh MUST update the existing topic chooser inside the educational-journey flow without changing the Introduction or conclusion/evaluation flows.
 - **FR-002**: The visible heading text MUST change from the current treatment to the Brazilian Portuguese title `Explore um tema`.
 - **FR-003**: The heading MUST place the arrow accent on the final line of that title so the final visible line reads as `tema` plus the arrow treatment, rather than showing the arrows on a separate line above it.
 - **FR-004**: The arrow accent MUST use a contrasting approved color and a pixel-style display treatment that matches the project's restrained retro direction.
@@ -88,7 +88,7 @@ A student on mouse, touch, or keyboard can use the topic cards in a responsive l
 - **FR-016**: Focus and pressed states MAY remain distinct for accessibility, but they MUST stay visually consistent with the simplified interaction direction.
 - **FR-017**: The section MUST remain responsive across mobile, tablet, and desktop viewports without clipped title text, clipped card text, or broken card spacing.
 - **FR-018**: Public website copy for the chooser MUST remain Brazilian Portuguese, while specification and planning artifacts remain English.
-- **FR-019**: Visual choices MUST follow `theme-vibe.md`, keeping the modern educational cybersecurity direction with restrained retro accents.
+- **FR-019**: Visual choices MUST follow `design.md`, keeping the educational cybersecurity direction with restrained technical accents.
 - **FR-020**: The feature MUST continue using centralized structured topic content rather than duplicating topic copy in presentation markup.
 - **FR-021**: The implementation plan for this feature MUST keep the chooser-specific styling inline within the component markup rather than moving this refresh into new global style layers.
 - **FR-022**: The feature MUST NOT add new dependencies unless the user explicitly approves them.

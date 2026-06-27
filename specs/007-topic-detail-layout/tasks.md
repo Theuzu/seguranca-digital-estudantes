@@ -214,7 +214,7 @@ source, then run `npm run lint`, `npm run build`, and `git diff --check`.
 ## Notes
 
 - Website copy is Brazilian Portuguese; project documentation is English.
-- Keep Hero, Content, and Conclusion as the three top-level sections.
+- Keep the approved single-page narrative architecture from `design.md`.
 - Keep new topic-detail styling as inline Tailwind utility classes.
 - Add no dependency without explicit user approval.
 - Do not touch Conclusion or Google Forms for this feature.

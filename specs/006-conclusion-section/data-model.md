@@ -2,7 +2,7 @@
 
 ## ConclusionContent
 
-Static, immutable content object for the final top-level section.
+Static, immutable content object for the conclusion/evaluation flow.
 
 | Field | Type | Rules |
 |-------|------|-------|
@@ -83,4 +83,3 @@ reduced motion
   -> final visible state immediately
   -> no translation or stagger
 ```
-

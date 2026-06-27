@@ -71,7 +71,7 @@ A student reaches the end of the topic and can scan a concise checklist of actio
 
 ### Functional Requirements
 
-- **FR-001**: The feature MUST add a reusable topic-detail layout inside the existing Content section without changing the Hero or Conclusion top-level sections.
+- **FR-001**: The feature MUST add a reusable topic-detail layout inside the educational-journey flow without changing the Introduction or conclusion/evaluation flows.
 - **FR-002**: Every rendered topic detail MUST contain exactly three ordered content parts: problem presentation, protection guidance, and practical checklist.
 - **FR-003**: The problem presentation MUST be text-led and MUST introduce the topic's real-life student risk before giving instructions.
 - **FR-004**: The protection guidance MUST support a sequential sticky reading experience where guidance entries become active one at a time during scroll.
@@ -146,7 +146,7 @@ A student reaches the end of the topic and can scan a concise checklist of actio
 
 ## Assumptions
 
-- This feature is a topic-detail variation inside the Content section, not a new route or a fourth top-level page section.
+- This feature is a topic-detail variation inside the educational-journey flow, not a new route or unrelated page region.
 - The current five topic IDs remain valid, and "computadores-compartilhados" is the first complete topic-detail content used for planning.
 - Other topic details will follow the same data shape but may have different counts of guidance entries and checklist items.
 - The sticky guidance sequence may be skipped or flattened for reduced-motion users and for topics with only one guidance entry.

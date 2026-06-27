@@ -15,9 +15,9 @@ type ScrollExpandingSectionProps = {
 - `app/page.tsx` remains a Server Component.
 - Existing Hero content and visual treatment remain unchanged.
 - Hero stays sticky at the viewport top throughout the transition.
-- Content section is second top-level section inside page `<main>`.
+- Content region is part of the educational journey inside page `<main>`.
 - Content section overlaps and progressively covers the Hero from a higher stacking layer.
-- Conclusion remains third-section scope and is not added here.
+- Conclusion/evaluation scope is not added here.
 
 ## Styling Contract
 

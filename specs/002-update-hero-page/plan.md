@@ -24,7 +24,7 @@ Update the homepage hero into a full-bleed, responsive first viewport that visua
 
 **Performance Goals**: First viewport readable immediately; initial animation completes under 2 seconds; no horizontal scroll on tested mobile/desktop viewports
 
-**Constraints**: Keep required title and subtitle unchanged, keep documentation in English, follow `theme-vibe.md`, use responsible academic cybersecurity framing, avoid backend/auth/database, and only add/import font assets for closer reference font match
+**Constraints**: Keep required title and subtitle unchanged, keep documentation in English, follow `design.md`, use responsible academic cybersecurity framing, avoid backend/auth/database, and only add/import font assets for closer reference font match
 
 **Scale/Scope**: Hero section only; Content and Conclusion remain out of scope
 
@@ -33,10 +33,12 @@ Update the homepage hero into a full-bleed, responsive first viewport that visua
 *GATE: Passed before Phase 0 research. Re-checked after Phase 1 design.*
 
 - Website/docs language split: Website text stays Brazilian Portuguese-style with exact title/subtitle; docs stay English.
-- Three-section structure: Feature maps only to Hero and does not alter Content or Conclusion.
-- Data-file content model: No new content data is introduced; required text remains inline because the feature is only the fixed hero identity copy.
-- Theme compliance: Uses `theme-vibe.md` palette, readable typography, 80% modern UI / 20% retro influence, cloud/CRT texture, and approachable cybersecurity tone.
-- Clean animation: CSS-only entrance/drift effects, short reveal timing, and `prefers-reduced-motion` override.
+- Single-page narrative architecture: Feature maps only to the hero portion of
+  the Introduction macro phase and does not alter the educational journey or
+  conclusion/evaluation flow.
+- Data-driven topic content: No new content data is introduced; required text remains inline because the feature is only the fixed hero identity copy.
+- Design compliance: Uses `design.md` palette, readable typography, restrained dark-sky cybersecurity styling, and approachable cybersecurity tone.
+- Accessible motion: CSS-only entrance/drift effects, short reveal timing, and `prefers-reduced-motion` override.
 - Next.js discipline: Checked local Next docs for App pages/layouts, CSS, and font optimization under `node_modules/next/dist/docs/01-app/01-getting-started/`.
 - Dependency restraint: No general dependency additions. Font additions/imports are allowed by clarification only when needed for closer reference match.
 - Google Forms scope: Feature does not touch Conclusion or Google Forms.

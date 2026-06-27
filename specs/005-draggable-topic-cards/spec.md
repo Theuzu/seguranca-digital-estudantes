@@ -73,7 +73,7 @@ A student intentionally clicks, taps, or keyboard-activates any non-dragged card
 
 ### Functional Requirements
 
-- **FR-001**: The redesign MUST replace the existing topic-card presentation inside the second top-level Content section without changing the Hero or Conclusion sections.
+- **FR-001**: The redesign MUST replace the existing topic-card presentation inside the educational-journey flow without changing the Introduction or conclusion/evaluation flows.
 - **FR-002**: The existing scroll-expanding problem introduction MUST remain the lead-in to the chooser.
 - **FR-003**: The chooser MUST keep the visible heading "Escolha um tema".
 - **FR-004**: The chooser MUST present exactly five cards in this order with the following simplified public copy:
@@ -146,4 +146,4 @@ A student intentionally clicks, taps, or keyboard-activates any non-dragged card
 - Icons reinforce topic recognition but do not replace titles or descriptions.
 - Use of one consistent icon library is explicitly approved; final library selection and icon mapping belong to planning.
 - Existing animation and smooth-scroll capabilities may be reused when appropriate; no unrelated dependency is approved.
-- The chooser remains part of the current one-page Hero, Content, and Conclusion structure.
+- The chooser remains part of the current single-page educational journey.

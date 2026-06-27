@@ -126,7 +126,7 @@ implemented and validated independently.
 - [ ] T038 [P] Check 200% zoom readability for title, cards, focus outlines, and markers using `specs/008-topic-chooser-fit/quickstart.md`
 - [ ] T039 Check keyboard navigation, focus alignment, and same-page anchor activation using `app/components/TopicChooser.tsx`
 - [ ] T040 Check reduced-motion behavior and drag-versus-click behavior using `app/components/TopicChooser.tsx` and `specs/008-topic-chooser-fit/quickstart.md`
-- [X] T041 Check responsible pt-BR copy, title wording, and theme-vibe alignment in `data/content.ts` and `app/components/TopicChooser.tsx`
+- [X] T041 Check responsible pt-BR copy, title wording, and design.md alignment in `data/content.ts` and `app/components/TopicChooser.tsx`
 - [X] T042 Run `npm run lint` for the implementation touched by `data/content.ts`, `app/components/TopicChooser.tsx`, and `AGENTS.md`
 - [X] T043 Run `npm run build` for the implementation touched by `data/content.ts` and `app/components/TopicChooser.tsx`
 - [X] T044 Run `git diff --check` for whitespace validation across the feature changes
@@ -217,7 +217,7 @@ source, then run `npm run lint`, `npm run build`, and `git diff --check`.
 ## Notes
 
 - Website copy is Brazilian Portuguese; project documentation is English.
-- Keep Hero, Content, and Conclusion as the three top-level sections.
+- Keep the approved single-page narrative architecture from `design.md`.
 - Keep chooser styling inline inside `app/components/TopicChooser.tsx`.
 - Add no dependency without explicit user approval.
 - Do not change topic-detail layout, Conclusion content, or Google Forms for this feature.

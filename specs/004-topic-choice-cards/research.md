@@ -9,7 +9,9 @@
 **Alternatives considered**:
 
 - Import `TopicChooser` directly into the client component: rejected because it would add static chooser markup to the client boundary.
-- Create another top-level Content section: rejected because the project permits exactly three top-level sections and this work continues the existing Content section.
+- Create a separate route or unrelated page region: rejected because the project
+  is a coherent single-page journey and this work continues the existing
+  educational-journey flow.
 - Move all Content markup into `app/page.tsx`: rejected because it would split ownership of the existing transition and make the semantic section harder to keep cohesive.
 
 ## Decision 2: Isolate scroll progress from following content
@@ -69,5 +71,4 @@
 
 - Add topic selectors to `app/globals.css`: rejected because styles are feature-local.
 - Add a CSS module: valid but unnecessary for this static utility-based layout.
-- Reuse Motion hover effects from `theme-vibe.md`: rejected because animation is outside this feature.
-
+- Reuse Motion hover effects from `design.md`: rejected because animation is outside this feature.

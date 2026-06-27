@@ -110,9 +110,9 @@ description: "Tasks for Page.tsx Refactor — extract hero + ContentSection, con
 
 ## Phase 5: User Story 1 - page.tsx Thin Shell (Priority: P1)
 
-**Goal**: Strip `page.tsx` to minimal shell — only top-level section children + `FaGithub` import + `ConclusionSection` wiring.
+**Goal**: Strip `page.tsx` to minimal shell: only extracted page-region children plus required imports/wiring.
 
-**Independent Test**: Open `page.tsx` — exactly 3 top-level children: `<HeroSection />`, `<ContentSection />`, `<ConclusionSection />`. No `contentIntro`, `topicChooser`, or `topicDetails` imports.
+**Independent Test**: Open `page.tsx`: it renders the expected extracted page-region children (`<HeroSection />`, `<ContentSection />`, `<ConclusionSection />`) and has no `contentIntro`, `topicChooser`, or `topicDetails` imports.
 
 ### Implementation for page.tsx
 
@@ -124,7 +124,7 @@ description: "Tasks for Page.tsx Refactor — extract hero + ContentSection, con
 - [x] T039 [US1] Rewrite render to: `<main><HeroSection /><ContentSection /><ConclusionSection content={conclusionContent} /></main>`
 - [x] T040 [US1] Keep `import { FaGithub } from "react-icons/fa6"` in `app/page.tsx` (per user preference)
 
-**Checkpoint**: `page.tsx` is thin shell — exactly 3 children, minimal imports.
+**Checkpoint**: `page.tsx` is a thin shell with extracted page-region children and minimal imports.
 
 ---
 
@@ -134,7 +134,7 @@ description: "Tasks for Page.tsx Refactor — extract hero + ContentSection, con
 
 - [x] T041 [P] Run `rg '\.hero-' app/globals.css` — confirm zero matches (US4 final check)
 - [x] T042 [P] Run `rg '(contentIntro|topicChooser|topicDetails)' app/page.tsx` — confirm zero matches (US1 final check)
-- [x] T043 [P] Run `rg '<(HeroSection|ContentSection|ConclusionSection)' app/page.tsx` — confirm exactly 3 matches (US1)
+- [x] T043 [P] Run `rg '<(HeroSection|ContentSection|ConclusionSection)' app/page.tsx` — confirm expected extracted children are present (US1)
 - [x] T044 [P] Run `npm run lint` — zero new errors/warnings
 - [x] T045 Run `npm run build` — compiles successfully
 - [ ] T046 [P] Manual visual check at 360px, 390px, 768px, 1280px — hero identical to pre-refactor (needs dev server)

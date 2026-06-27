@@ -32,7 +32,7 @@ npm run dev
 
 Open the local URL printed by Next.js and validate:
 
-1. The page still has only the Hero, Content, and Conclusion top-level flow.
+1. The page still follows the approved single-page narrative architecture.
 2. The topic chooser still shows the existing topic order.
 3. Activating the "Computadores compartilhados" card reaches the real topic
    detail section, not an empty placeholder.
@@ -58,4 +58,4 @@ Open the local URL printed by Next.js and validate:
 Feature passes when the supplied Topic 3 content is fully readable in the
 three-part reusable layout, the sticky guidance behaves cleanly with fallback
 for reduced motion, the chooser anchors land on real details, and the page keeps
-the existing academic design system and three-section structure.
+the existing academic design system and single-page narrative architecture.

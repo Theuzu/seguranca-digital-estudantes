@@ -97,13 +97,12 @@ provide the palette.
 after the thank-you block.
 
 **Rationale**: This matches the second reference's contrasting close, makes the
-academic note visually secondary, and preserves exactly three top-level
-sections. DOM order remains the required reading order on every viewport.
+academic note visually secondary, and preserves one coherent single-page
+journey. DOM order remains the required reading order on every viewport.
 
 **Alternatives considered**:
 
-- Create a fourth top-level Footer section: rejected because the constitution
-  requires exactly Hero, Content, and Conclusion.
+- Create a separate footer route or unrelated page region: rejected because the
+  constitution requires one coherent single-page educational journey.
 - Keep the academic note inside the evaluation panel: rejected because the user
   explicitly allowed and preferred footer treatment like the reference.
-

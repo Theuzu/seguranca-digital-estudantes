@@ -21,7 +21,7 @@
 **Purpose**: Lock hero design rules before implementation.
 
 - [X] T004 Confirm required hero text and UI contract in specs/002-update-hero-page/contracts/hero-ui.md
-- [X] T005 Confirm theme constraints in theme-vibe.md
+- [X] T005 Confirm design constraints in design.md
 
 ---
 

@@ -29,7 +29,7 @@ A student finishes the scroll-expanding introduction, understands that everyday 
 
 1. **Given** the student reaches the expanded Content section, **When** the introductory text is visible, **Then** the two existing paragraphs present the problem and practical purpose in their original order and wording.
 2. **Given** the student continues past the introduction, **When** the next content group enters view, **Then** "Escolha um tema" clearly identifies the next action without requiring instructions or prior cybersecurity knowledge.
-3. **Given** the introduction and chooser are viewed together, **When** the student scans the section, **Then** they read as one continuous Content section rather than separate top-level sections.
+3. **Given** the introduction and chooser are viewed together, **When** the student scans the section, **Then** they read as one continuous educational-journey flow rather than unrelated page regions.
 
 ---
 
@@ -106,7 +106,7 @@ A student uses the control inside a card to move to the reserved destination for
 - **FR-015**: Theme content MUST follow the project's centralized content ownership rule and MUST NOT be duplicated across presentation surfaces.
 - **FR-016**: The experience MUST preserve accessible contrast, readable typography, and clear heading structure.
 - **FR-017**: The feature MUST remain preventive and educational; it MUST NOT include operational attack instructions.
-- **FR-018**: The feature MUST NOT add a fourth top-level page section or modify the Conclusion section and its Google Forms responsibility.
+- **FR-018**: The feature MUST NOT add a separate route, unrelated page region, or modify the conclusion/evaluation flow and its Google Forms responsibility.
 - **FR-019**: The feature MUST NOT introduce animation choreography, modals, carousels, filters, search, progress tracking, authentication, data collection, or detailed guidance copy.
 
 ### Experience and Layout Requirements
@@ -146,7 +146,7 @@ A student uses the control inside a card to move to the reserved destination for
 ## Assumptions
 
 - The scroll-expanding introduction from feature 003 remains in place and supplies the problem context for this chooser.
-- The chooser is a continuation inside the second top-level Content section, not a new section between Content and Conclusion.
+- The chooser is a continuation inside the educational-journey flow, not a separate route or unrelated page region.
 - Detailed orientation copy and its final presentation are separate work; this feature creates only the five matching destination headings and anchors within the Content section.
 - Each destination has a stable, unique association with one of the five supplied themes before its control is exposed as active.
 - All five themes have equal editorial priority, so no card is featured by default.
