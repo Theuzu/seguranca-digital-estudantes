@@ -53,8 +53,8 @@ export const conclusionContent: ConclusionContent = {
   label: "FINALIZAÇÃO",
   title: "Pequenos cuidados fazem diferença",
   closingParagraphs: [
-    "A segurança digital não depende apenas de ferramentas avançadas. Hábitos simples, como utilizar senhas diferentes, sair das contas em computadores compartilhados e verificar uma oportunidade antes de clicar, ajudam a proteger dados pessoais e acadêmicos.",
-    "Além de proteger suas próprias informações, uma convivência digital respeitosa contribui para um ambiente universitário mais seguro para todos.",
+    "A segurança digital não depende apenas de ferramentas avançadas. Hábitos simples, são fundamentais, para proteger dados pessoais e acadêmicos.",
+    "Além disso, contribuem para uma convivência digital respeitosa e para um ambiente acadêmico mais seguro para todos.",
   ],
   evaluation: {
     title: "Ajude a avaliar este projeto",
@@ -68,10 +68,10 @@ export const conclusionContent: ConclusionContent = {
   thanks: {
     title: "Agradecimento",
     paragraphs: [
-      "Obrigado por acessar o conteúdo e contribuir com esta atividade.",
-      "Compartilhe estas orientações com outros estudantes e ajude a promover práticas digitais mais seguras e responsáveis.",
+      "Obrigado por acessar o conteúdo! ;)",
+      "Compartilhe estas orientações e ajude a promover práticas digitais mais seguras e responsáveis.",
     ],
   },
   academicNote:
-    "Este site foi desenvolvido como parte de uma atividade acadêmica de extensão sobre segurança digital no ambiente universitário.",
+    "Este site foi desenvolvido como parte de uma atividade de extensão acadêmica.",
 };

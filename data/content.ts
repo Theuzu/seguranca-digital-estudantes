@@ -77,7 +77,7 @@ export type TopicDetailContent = {
 export const contentIntro: ContentIntro = {
   id: "content-intro",
   paragraphs: [
-    "Durante a faculdade, utilizamos senhas, plataformas acadêmicas, computadores compartilhados, serviços de armazenamento em nuvem e grupos de comunicação. Pequenos descuidos nesses ambientes podem causar perda de arquivos, exposição de informações e conflitos entre estudantes.",
+    "Durante os estudos, utilizamos senhas, plataformas acadêmicas, computadores compartilhados, serviços de armazenamento em nuvem e grupos de comunicação. Pequenos descuidos nesses ambientes podem causar perda de arquivos, exposição de informações e conflitos entre estudantes.",
     "Este guia apresenta orientações práticas que podem ser aplicadas no dia a dia.",
   ],
 };
@@ -87,7 +87,7 @@ export const topicChooser: TopicChooserContent = {
   title: {
     lineOne: "Explore um",
     lineTwo: "tema",
-    accent: ">>>",
+    accent: "->",
   },
   topics: [
     {
