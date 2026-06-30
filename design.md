@@ -100,7 +100,7 @@ The visitor should always understand:
 Use an **editorial cybersecurity journey** with a subtle mix of:
 
 - large, expressive typography;
-- dark-sky backgrounds;
+- Ink Black dark-mode backgrounds with Ghost White text;
 - low-poly or softly pixelated decorative objects;
 - thin technical borders and counters;
 - clear educational layouts;
@@ -244,39 +244,68 @@ Use space and borders to separate ideas. Do not wrap every block in a rounded ca
 
 ## 8. Design tokens
 
-Define the palette once in global CSS variables or the Tailwind theme. Do not repeat arbitrary hex values throughout components.
+Define the palette once in global CSS variables and expose it through Tailwind CSS variables. Do not repeat arbitrary hex values throughout components, and do not apply palette colors as inline component styles.
 
 ```css
 :root {
-  --color-bg-deep: #060b1d;
-  --color-bg: #09112a;
-  --color-surface: #0d1425;
-  --color-surface-elevated: #111b34;
-  --color-text: #f5f6fa;
-  --color-text-muted: #c9cbd8;
-  --color-accent: #7edb8a;
-  --color-danger: #ff6b6b;
-  --color-border: rgb(245 246 250 / 0.2);
-  --color-border-strong: rgb(245 246 250 / 0.38);
-  --color-shadow: rgb(1 5 18 / 0.38);
+  --palette-ink-black: #0E1116;
+  --palette-dusk-blue: #374A67;
+  --palette-rosy-copper: #DB504A;
+  --palette-saffron: #E3B505;
+  --palette-ghost-white: #F0EFF4;
+
+  --role-page: var(--palette-ink-black);
+  --role-page-deep: var(--palette-ink-black);
+  --role-surface: color-mix(in srgb, var(--palette-dusk-blue) 30%, var(--palette-ink-black));
+  --role-surface-elevated: var(--palette-dusk-blue);
+  --role-copy: var(--palette-ghost-white);
+  --role-muted: color-mix(in srgb, var(--palette-ghost-white) 74%, var(--palette-dusk-blue));
+  --role-accent: var(--palette-saffron);
+  --role-support-blue: var(--palette-dusk-blue);
+  --role-support-copper: var(--palette-rosy-copper);
+  --role-support-saffron: var(--palette-saffron);
+  --role-danger: var(--palette-rosy-copper);
+  --role-line: color-mix(in srgb, var(--palette-ghost-white) 18%, transparent);
+  --role-line-strong: color-mix(in srgb, var(--palette-ghost-white) 34%, transparent);
+  --role-shadow: color-mix(in srgb, var(--palette-ink-black) 72%, transparent);
+}
+
+@theme inline {
+  --color-page: var(--role-page);
+  --color-page-deep: var(--role-page-deep);
+  --color-surface: var(--role-surface);
+  --color-surface-elevated: var(--role-surface-elevated);
+  --color-copy: var(--role-copy);
+  --color-muted: var(--role-muted);
+  --color-accent: var(--role-accent);
+  --color-danger: var(--role-danger);
+  --color-support-blue: var(--role-support-blue);
+  --color-support-copper: var(--role-support-copper);
+  --color-support-saffron: var(--role-support-saffron);
+  --color-line: var(--role-line);
+  --color-line-strong: var(--role-line-strong);
+  --color-shadow: var(--role-shadow);
 }
 ```
 
-These current combinations provide strong contrast on the dark background. If any color is changed, retest all text and control states.
+These combinations provide strong contrast on the dark background when used in their defined roles. If any role is changed, retest all text and control states.
 
 ### 8.1 Color usage
 
-- `--color-bg`: primary page background.
-- `--color-bg-deep`: hero depth and section transition background.
-- `--color-surface`: image placeholders, cards, and secondary panels.
-- `--color-surface-elevated`: active sticky card or emphasized panel.
-- `--color-text`: headings and primary information.
-- `--color-text-muted`: body copy and secondary labels.
-- `--color-accent`: progress, topic numbers, links, focus, and positive actions.
-- `--color-danger`: warnings and suspicious behavior only.
+- `--color-bg`: Ink Black primary page background.
+- `--color-bg-deep`: Ink Black hero depth and section transition background.
+- `--color-surface`: derived dark surface for image placeholders, cards, and secondary panels.
+- `--color-surface-elevated`: Dusk Blue active sticky card or emphasized panel.
+- `--color-text`: Ghost White headings and primary information.
+- `--color-text-muted`: muted Ghost White body copy and secondary labels.
+- `--color-accent`: Saffron progress, topic numbers, focus, and primary CTA emphasis.
+- `--color-support-blue`: Dusk Blue depth, panels, and cool hierarchy.
+- `--color-support-copper`: Rosy Copper caution, contrast accents, and educational emphasis.
+- `--color-support-saffron`: Saffron highlights, progress, and CTA priority.
+- `--color-danger`: Rosy Copper warnings and suspicious behavior only.
 - `--color-border`: structural separators.
 
-Do not use red as decoration. It must preserve its warning meaning.
+Do not use Rosy Copper as a blanket decoration. It may support hierarchy, but warning or danger meaning must remain clear when it is used for caution states.
 
 ### 8.2 Borders, radii, and shadows
 
@@ -289,7 +318,7 @@ Do not use red as decoration. It must preserve its warning meaning.
 Suggested sticky-card shadow:
 
 ```css
-box-shadow: 0 24px 80px rgb(1 5 18 / 0.38);
+box-shadow: 0 24px 80px var(--color-shadow);
 ```
 
 Do not combine a strong shadow, glow, translucent background, and heavy border on the same element.
@@ -437,7 +466,7 @@ Mobile:
 
 ### 11.4 Decorative art direction
 
-Use the existing dark-sky, low-poly/pixel direction. Possible objects:
+Use the Ink Black dark-mode, low-poly/pixel direction. Possible objects:
 
 - three to five clouds at different depths;
 - a key;
@@ -923,7 +952,7 @@ After Topic 05, use a high-contrast section to signal completion.
 
 Recommended treatment:
 
-- background: `--color-accent`;
+- background: `--color-support-saffron` or `--color-accent`;
 - text: `--color-bg`;
 - generous vertical padding;
 - large summary headline;
@@ -1621,9 +1650,9 @@ Its visual signature should come from:
 
 - oversized but readable typography;
 - numbered five-part progression;
-- dark-sky low-poly/pixel atmosphere;
+- Ink Black low-poly/pixel atmosphere;
 - centered sticky guidance cards;
-- consistent green accent;
+- consistent Dusk Blue, Rosy Copper, and Saffron support accents;
 - strong editorial spacing;
 - student-centered imagery;
 - restrained motion;

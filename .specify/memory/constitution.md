@@ -1,33 +1,22 @@
 <!--
 Sync Impact Report
-Version change: 1.1.0 -> 2.0.0
+Version change: 2.0.0 -> 2.1.0
 Modified principles:
-- II. Three-Section Structure and Data Files -> II. Data-Driven Educational Journey
-- III. Clean Motion and theme-vibe.md -> III. Binding Design System and Accessible Motion
-- Principle IV strengthened for responsive, performance, progressive enhancement, and dependency discipline
+- III. Binding Design System and Accessible Motion updated for the new required palette
 Preserved principles:
 - Portuguese interface and English documentation
+- Data-driven educational journey
+- Next.js discipline and controlled dependencies
 - Academic and responsible cybersecurity
 Added:
-- design.md as the sole design source of truth
-- Detailed information-architecture delegation
-- Accessibility and reduced-motion requirements
-- Sticky guidance-card constraints
-- Responsive test expectations
-- Design-system and performance rules
-- Stronger definition of done
+- Required Ink Black, Ghost White, Dusk Blue, Rosy Copper, and Saffron palette roles
+- Requirement that active website colors come from centralized global Tailwind/CSS variables
 Removed:
-- Exact three rendered top-level sections
-- Active dependency on theme-vibe.md
+- Old one-accent green palette requirement
 Templates and documentation requiring review or update:
-- updated: .specify/templates/plan-template.md
-- updated: .specify/templates/spec-template.md
-- updated: .specify/templates/tasks-template.md
-- updated: .specify/templates/checklist-template.md
+- updated: design.md
+- updated: active specs, plans, tasks, contracts, research, and quickstart files for palette-token implementation
 - not present: .specify/templates/commands/*.md
-- updated: README.md
-- updated: AGENTS.md
-- updated: active specs, plans, tasks, contracts, research, and quickstart files containing theme-vibe.md or the old three-section rule
 Follow-up TODOs:
 - None.
 -->
@@ -116,8 +105,13 @@ The website MUST use a cohesive design system. Design tokens MUST be centralized
 Space Grotesk remains the display heading font when configured; Silkscreen is
 limited to short labels and counters; body copy uses a readable sans-serif; and
 no additional font family may be added without approval. The palette MUST remain
-a restrained dark-sky cybersecurity palette with one primary accent color. Red
-is reserved for warning or dangerous behavior. Borders, spacing, containers,
+a dark-mode palette based on Ink Black for the dominant background and Ghost
+White for primary readable text. Dusk Blue, Rosy Copper, and Saffron are support
+colors for hierarchy, depth, progress, focus, call-to-action priority, and
+educational emphasis. Active website colors MUST be declared in centralized
+global Tailwind/CSS variables, not scattered as inline component styles or raw
+hex values. Rosy Copper may support warning or caution states, but it MUST NOT
+turn every decorative accent into an error cue. Borders, spacing, containers,
 typography scales, and topic imagery treatment MUST remain consistent. The
 visual cliches prohibited by `design.md`, including Matrix-style code rain,
 hooded hacker stock imagery, excessive neon, dashboard widget grids, fake
@@ -261,4 +255,4 @@ clipping, weakens the evaluation CTA, violates the interface/documentation
 language split, adds unapproved dependencies, introduces unnecessary application
 complexity, or leaves accessibility failures unresolved.
 
-**Version**: 2.0.0 | **Ratified**: 2026-06-16 | **Last Amended**: 2026-06-26
+**Version**: 2.1.0 | **Ratified**: 2026-06-16 | **Last Amended**: 2026-06-30

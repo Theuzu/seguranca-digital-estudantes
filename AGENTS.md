@@ -7,7 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 <!-- SPECKIT START -->
 Before planning or implementation work, read the constitution at
 .specify/memory/constitution.md, the binding design specification at design.md,
-and the current plan at specs/009-page-tsx-refactor/plan.md when present.
+and the current plan at specs/011-update-design-palette/plan.md when present.
 
 For additional context about technologies to be used, project structure, shell
 commands, and other important information, use the current feature spec and plan.
