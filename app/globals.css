@@ -1,22 +1,116 @@
 @import "tailwindcss";
 
 :root {
-  --background: #c9cbd8;
-  --foreground: #141826;
-  --surface: #f5f6fa;
-  --dark-surface: #09112a;
-  --muted: #4e5568;
-  --blue: #4f7cff;
-  --green: #7edb8a;
-  --orange: #ffb84d;
+  --palette-ink-black: #0E1116;
+  --palette-dusk-blue: #374A67;
+  --palette-rosy-copper: #DB504A;
+  --palette-saffron: #E3B505;
+  --palette-ghost-white: #F0EFF4;
+
+  --role-page: var(--palette-ink-black);
+  --role-page-deep: var(--palette-ink-black);
+  --role-surface: color-mix(
+    in srgb,
+    var(--palette-dusk-blue) 30%,
+    var(--palette-ink-black)
+  );
+  --role-surface-elevated: var(--palette-dusk-blue);
+  --role-copy: var(--palette-ghost-white);
+  --role-muted: color-mix(
+    in srgb,
+    var(--palette-ghost-white) 74%,
+    var(--palette-dusk-blue)
+  );
+  --role-accent: var(--palette-saffron);
+  --role-support-blue: var(--palette-dusk-blue);
+  --role-support-copper: var(--palette-rosy-copper);
+  --role-support-saffron: var(--palette-saffron);
+  --role-danger: var(--palette-rosy-copper);
+  --role-line: color-mix(in srgb, var(--palette-ghost-white) 18%, transparent);
+  --role-line-strong: color-mix(in srgb, var(--palette-ghost-white) 34%, transparent);
+  --role-shadow: color-mix(in srgb, var(--palette-ink-black) 72%, transparent);
+
+  --color-bg-deep: var(--role-page-deep);
+  --color-bg: var(--role-page);
+  --color-surface: var(--role-surface);
+  --color-surface-elevated: var(--role-surface-elevated);
+  --color-text: var(--role-copy);
+  --color-text-muted: var(--role-muted);
+  --color-accent: var(--role-accent);
+  --color-danger: var(--role-danger);
+  --color-support-blue: var(--role-support-blue);
+  --color-support-copper: var(--role-support-copper);
+  --color-support-saffron: var(--role-support-saffron);
+  --color-border: var(--role-line);
+  --color-border-strong: var(--role-line-strong);
+  --color-shadow: var(--role-shadow);
+
+  --page-max: 1440px;
+  --content-max: 1344px;
+  --stack-max: 1120px;
+  --reading-max: 720px;
+  --compact-max: 560px;
+  --gutter: clamp(1.5rem, 5vw, 5rem);
+
+  --text-label: clamp(0.68rem, 0.8vw, 0.8rem);
+  --text-body: clamp(1rem, 1.1vw, 1.18rem);
+  --text-body-large: clamp(1.12rem, 1.5vw, 1.4rem);
+  --text-card-title: clamp(2rem, 5vw, 5rem);
+  --text-section-title: clamp(2.8rem, 7vw, 7rem);
+  --text-hero: clamp(3.4rem, 10vw, 10rem);
+
+  --radius-card: 24px;
+  --radius-card-mobile: 18px;
+  --radius-control: 999px;
+  --radius-button: 12px;
+  --shadow-sticky-card: 0 24px 80px var(--color-shadow);
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --header-height: 72px;
+  --header-anchor-offset: calc(var(--header-height) + 1.5rem);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-page: var(--role-page);
+  --color-page-deep: var(--role-page-deep);
+  --color-surface: var(--role-surface);
+  --color-surface-elevated: var(--role-surface-elevated);
+  --color-copy: var(--role-copy);
+  --color-muted: var(--role-muted);
+  --color-accent: var(--role-accent);
+  --color-danger: var(--role-danger);
+  --color-support-blue: var(--role-support-blue);
+  --color-support-copper: var(--role-support-copper);
+  --color-support-saffron: var(--role-support-saffron);
+  --color-line: var(--role-line);
+  --color-line-strong: var(--role-line-strong);
+  --color-shadow: var(--role-shadow);
+
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
   --font-pixel: var(--font-silkscreen);
+
+  --container-page: var(--page-max);
+  --container-content: var(--content-max);
+  --container-stack: var(--stack-max);
+  --container-reading: var(--reading-max);
+  --container-compact: var(--compact-max);
+
+  --text-label: clamp(0.68rem, 0.8vw, 0.8rem);
+  --text-body: clamp(1rem, 1.1vw, 1.18rem);
+  --text-body-large: clamp(1.12rem, 1.5vw, 1.4rem);
+  --text-card-title: clamp(2rem, 5vw, 5rem);
+  --text-section-title: clamp(2.8rem, 7vw, 7rem);
+  --text-hero: clamp(3.4rem, 10vw, 10rem);
+
+  --radius-card: 24px;
+  --radius-card-mobile: 18px;
+  --radius-control: 999px;
+  --radius-button: 12px;
+
+  --shadow-sticky-card: 0 24px 80px var(--role-shadow);
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 * {
@@ -28,12 +122,24 @@ body {
   min-height: 100%;
 }
 
+html {
+  scroll-padding-top: var(--header-anchor-offset);
+  scroll-behavior: smooth;
+}
+
+#conteudo,
+#content-intro,
+#topic-chooser,
+#conclusao,
+#conclusao-avaliacao,
+[data-anchor-target] {
+  scroll-margin-top: var(--header-anchor-offset);
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  @apply bg-page text-copy font-sans;
 }
 
 @keyframes hero-rise {

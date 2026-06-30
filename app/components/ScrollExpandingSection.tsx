@@ -51,8 +51,10 @@ export default function ScrollExpandingSection({
 
   return (
     <section
+      id={content.id}
+      tabIndex={-1}
       aria-label="Introdução à segurança digital no ambiente acadêmico"
-      className="relative z-10"
+      className="relative z-10 scroll-mt-[var(--header-anchor-offset)]"
     >
       <div
         ref={transitionRef}
@@ -70,7 +72,7 @@ export default function ScrollExpandingSection({
           }
         >
           <motion.div
-            className="pointer-events-auto relative flex w-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-b-none bg-[#F5F6FA] px-6 py-12 text-[#141826] shadow-[0_-24px_80px_rgba(9,17,42,0.16)] sm:px-12 lg:px-20"
+            className="pointer-events-auto relative flex w-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-b-none bg-surface-elevated px-6 py-12 text-copy shadow-sticky-card sm:px-12 lg:px-20"
             style={{
               height: shouldReduceMotion ? "100svh" : cardHeight,
               marginInline: shouldReduceMotion ? "0px" : cardMargin,
@@ -82,10 +84,10 @@ export default function ScrollExpandingSection({
               style={{ opacity: textOpacity }}
               className="flex w-full flex-col items-center justify-center gap-6"
             >
-              <p className="font-(family-name:--font-space-grotesk) text-[clamp(1.4rem,3.2vw,3.25rem)] leading-[1.08] font-normal">
+              <p className="font-display text-[clamp(1.4rem,3.2vw,3.25rem)] leading-[1.08] font-normal">
                 {content.paragraphs[0]}
               </p>
-              <p className="max-w-3xl font-(family-name:--font-inter) text-[clamp(1rem,1.65vw,1.4rem)] leading-relaxed text-[#4E5568]">
+              <p className="max-w-3xl font-sans text-[clamp(1rem,1.65vw,1.4rem)] leading-relaxed text-muted">
                 {content.paragraphs[1]}
               </p>
             </motion.div>

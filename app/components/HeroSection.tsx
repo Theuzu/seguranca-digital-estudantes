@@ -15,7 +15,7 @@ export default function HeroSection() {
       aria-labelledby="hero-title"
       style={{
         background:
-          "linear-gradient(180deg, rgba(9,17,42,0.28), rgba(245,246,250,0.12) 45%, rgba(9,17,42,0.22)),linear-gradient(135deg, #8f9bb7 0%, #c9cbd8 36%, #eef2fb 50%, #a4aec7 72%, #6f7f9d 100%)",
+          "radial-gradient(circle at 72% 22%, color-mix(in srgb, var(--color-support-saffron) 22%, transparent), transparent 28rem),radial-gradient(circle at 48% 58%, color-mix(in srgb, var(--color-support-copper) 10%, transparent), transparent 34rem),radial-gradient(circle at 18% 72%, color-mix(in srgb, var(--color-support-blue) 74%, transparent), transparent 32rem),linear-gradient(180deg, var(--color-bg-deep), var(--color-bg) 58%, var(--color-bg-deep))",
       }}
     >
       {/* hero-stage::before — cloud drift */}
@@ -25,7 +25,7 @@ export default function HeroSection() {
         style={{
           zIndex: -3,
           background:
-            "linear-gradient(18deg, transparent 0 17%, rgba(245,246,250,0.8) 18% 25%, transparent 33% 100%),linear-gradient(172deg, transparent 0 56%, rgba(245,246,250,0.52) 58% 65%, transparent 74% 100%),linear-gradient(0deg, rgba(9,17,42,0.24), transparent 34%, transparent 66%, rgba(245,246,250,0.18))",
+            "linear-gradient(18deg, transparent 0 17%, color-mix(in srgb, var(--color-text) 34%, transparent) 18% 25%, transparent 33% 100%),linear-gradient(172deg, transparent 0 56%, color-mix(in srgb, var(--color-text) 22%, transparent) 58% 65%, transparent 74% 100%),linear-gradient(0deg, color-mix(in srgb, var(--color-bg-deep) 72%, transparent), transparent 34%, transparent 66%, color-mix(in srgb, var(--color-text) 10%, transparent))",
           filter: "blur(24px)",
           transform: "scale(1.08)",
           animation: anim("hero-cloud-drift 14s ease-in-out infinite alternate"),
@@ -39,7 +39,7 @@ export default function HeroSection() {
         style={{
           zIndex: -2,
           background:
-            "radial-gradient(ellipse 62% 17% at 17% 41%, rgba(245,246,250,0.86), transparent 68%),radial-gradient(ellipse 55% 14% at 78% 28%, rgba(245,246,250,0.72), transparent 70%),radial-gradient(ellipse 66% 18% at 73% 78%, rgba(245,246,250,0.58), transparent 72%),radial-gradient(ellipse 42% 12% at 31% 77%, rgba(79,124,255,0.16), transparent 74%)",
+            "radial-gradient(ellipse 62% 17% at 17% 41%, color-mix(in srgb, var(--color-text) 26%, transparent), transparent 68%),radial-gradient(ellipse 55% 14% at 78% 28%, color-mix(in srgb, var(--color-text) 18%, transparent), transparent 70%),radial-gradient(ellipse 66% 18% at 73% 78%, color-mix(in srgb, var(--color-support-saffron) 16%, transparent), transparent 72%),radial-gradient(ellipse 42% 12% at 31% 77%, color-mix(in srgb, var(--color-support-blue) 42%, transparent), transparent 74%)",
           filter: "blur(14px)",
         }}
       />
@@ -51,7 +51,7 @@ export default function HeroSection() {
         style={{
           zIndex: -1,
           background:
-            "linear-gradient(90deg, rgba(255,184,77,0.22), transparent 22%, transparent 78%, rgba(126,219,138,0.2)),linear-gradient(115deg, transparent 0 43%, rgba(79,124,255,0.14) 45% 49%, transparent 51% 100%)",
+            "linear-gradient(90deg, color-mix(in srgb, var(--color-support-saffron) 18%, transparent), transparent 22%, transparent 78%, color-mix(in srgb, var(--color-support-copper) 12%, transparent)),linear-gradient(115deg, transparent 0 43%, color-mix(in srgb, var(--color-support-blue) 42%, transparent) 45% 49%, transparent 51% 100%)",
           mixBlendMode: "soft-light",
           animation: anim("hero-light-sweep 7s ease-in-out infinite alternate"),
         }}
@@ -64,10 +64,10 @@ export default function HeroSection() {
         style={{
           zIndex: 1,
           inset: "clamp(14px, 2vw, 32px)",
-          border: "1px solid rgba(245,246,250,0.28)",
+          border: "1px solid var(--color-border-strong)",
           borderRadius: "clamp(18px, 2.4vw, 34px)",
           boxShadow:
-            "inset 0 1px 0 rgba(245,246,250,0.35), inset 0 -1px 0 rgba(9,17,42,0.2)",
+            "inset 0 1px 0 var(--color-border-strong), inset 0 -1px 0 color-mix(in srgb, var(--color-bg-deep) 58%, transparent)",
         }}
       />
 
@@ -79,7 +79,7 @@ export default function HeroSection() {
           zIndex: 3,
           opacity: 0.24,
           backgroundImage:
-            "radial-gradient(rgba(9,17,42,0.38) 0.75px, transparent 0.75px),linear-gradient(rgba(245,246,250,0.1) 50%, transparent 50%)",
+            "radial-gradient(color-mix(in srgb, var(--color-bg-deep) 70%, transparent) 0.75px, transparent 0.75px),linear-gradient(color-mix(in srgb, var(--color-text) 10%, transparent) 50%, transparent 50%)",
           backgroundSize: "6px 6px, 100% 4px",
         }}
       />
@@ -100,16 +100,16 @@ export default function HeroSection() {
           style={{
             width: "min(560px, 62vw)",
             height: "clamp(34px, 5vw, 60px)",
-            background: "#09112a",
-            border: "1px solid rgba(245,246,250,0.24)",
-            boxShadow: "0 18px 54px rgba(9,17,42,0.22)",
+            background: "var(--color-surface-elevated)",
+            border: "1px solid var(--color-border)",
+            boxShadow: "0 18px 54px var(--color-shadow)",
             animation: anim("hero-rise 700ms ease both 120ms"),
           }}
         />
 
         {/* hero-subtitle */}
         <p
-          className="z-1 row-start-1 col-start-1 self-center m-0 font-(family-name:--font-silkscreen) text-[#eef3ff] max-w-[min(700px,88vw)]"
+          className="z-1 row-start-1 col-start-1 self-center m-0 max-w-[min(700px,88vw)] font-pixel text-copy"
           style={{
             fontSize: "clamp(12px, 1.35vw, 19px)",
             lineHeight: 1.4,
@@ -123,10 +123,11 @@ export default function HeroSection() {
         {/* hero-title */}
         <h1
           id="hero-title"
-          className="grid justify-items-center m-0 text-[#eef3ff]"
+          className="m-0 grid justify-items-center text-copy"
           style={{
             gap: "clamp(4px, 1.8vw, 18px)",
-            textShadow: "0 18px 56px rgba(9,17,42,0.34)",
+            textShadow:
+              "0 18px 56px color-mix(in srgb, var(--color-bg-deep) 68%, transparent)",
           }}
         >
           <span
@@ -139,10 +140,10 @@ export default function HeroSection() {
               ),
             }}
           >
-            <span className="inline-block font-(family-name:--font-space-grotesk) text-[1em] font-normal">
+            <span className="inline-block font-display text-[1em] font-normal">
               Seguranca
             </span>
-            <span className="inline-block font-(family-name:--font-silkscreen) text-[0.76em] font-normal">
+            <span className="inline-block font-pixel text-[0.76em] font-normal">
               Digital
             </span>
           </span>
@@ -156,10 +157,10 @@ export default function HeroSection() {
               ),
             }}
           >
-            <span className="inline-block font-(family-name:--font-space-grotesk) text-[1em] font-normal">
+            <span className="inline-block font-display text-[1em] font-normal">
               para
             </span>
-            <span className="inline-block font-(family-name:--font-silkscreen) text-[0.76em] font-normal">
+            <span className="inline-block font-pixel text-[0.76em] font-normal">
               Estudantes
             </span>
           </span>
@@ -173,20 +174,21 @@ export default function HeroSection() {
         </span>
 
         {/* hero-github */}
-        <span
-          className="grid place-items-center"
-          role="img"
-          aria-label="GitHub"
+        <a
+          className="grid place-items-center text-accent outline-offset-4 transition-colors hover:text-copy focus-visible:outline-3 focus-visible:outline-accent"
+          href="https://github.com/Theuzu/seguranca-digital-estudantes"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Abrir repositório do projeto no GitHub"
           style={{
             width: "clamp(34px, 3.6vw, 48px)",
             aspectRatio: 1,
-            color: "#09112a",
             fontSize: "clamp(30px, 3.2vw, 44px)",
             animation: anim("hero-rise 780ms ease both 680ms"),
           }}
         >
           <FaGithub aria-hidden="true" />
-        </span>
+        </a>
       </div>
 
       <style>{`

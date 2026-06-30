@@ -62,8 +62,10 @@ export default function ConclusionSection({ content }: ConclusionSectionProps) {
         </motion.div>
 
         <motion.aside
+          id={`${content.id}-avaliacao`}
           {...revealProps}
           className={styles.evaluation}
+          tabIndex={-1}
           aria-labelledby={`${content.id}-evaluation-title`}
         >
           <div className={styles.evaluationCopy}>

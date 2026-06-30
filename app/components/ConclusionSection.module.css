@@ -3,10 +3,9 @@
   z-index: 10;
   isolation: isolate;
   overflow: hidden;
-  color: #141826;
+  color: var(--color-text);
   background:
-    radial-gradient(circle at 12% 18%, rgba(79, 124, 255, 0.12), transparent 28rem),
-    linear-gradient(180deg, #f5f6fa 0%, #c9cbd8 58%, #c9cbd8 100%);
+    linear-gradient(180deg, var(--color-bg) 0%, color-mix(in srgb, var(--color-support-blue) 42%, var(--color-bg)) 58%, var(--color-bg) 100%);
 }
 
 .section::before {
@@ -17,8 +16,8 @@
   pointer-events: none;
   opacity: 0.38;
   background-image:
-    linear-gradient(rgba(9, 17, 42, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(9, 17, 42, 0.04) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 4%, transparent) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
@@ -43,7 +42,7 @@
 .label {
   display: inline-flex;
   margin-bottom: 1rem;
-  color: #4f7cff;
+  color: var(--color-accent);
   font-family: var(--font-silkscreen), monospace;
   font-size: 0.78rem;
   line-height: 1;
@@ -57,7 +56,7 @@
   font-size: clamp(3rem, 7.2vw, 7.75rem);
   font-weight: 500;
   line-height: 0.9;
-  letter-spacing: -0.065em;
+  letter-spacing: 0;
 }
 
 .closingCopy {
@@ -78,7 +77,7 @@
 
 .closingCopy p {
   max-width: 42rem;
-  color: #4e5568;
+  color: var(--color-text-muted);
   font-size: clamp(1rem, 1.35vw, 1.2rem);
 }
 
@@ -89,13 +88,13 @@
   align-items: center;
   margin-top: clamp(4rem, 8vw, 7rem);
   padding: clamp(2rem, 5vw, 4rem);
-  border: 1px solid rgba(9, 17, 42, 0.12);
+  border: 1px solid color-mix(in srgb, var(--color-bg) 22%, transparent);
   border-radius: clamp(1.5rem, 3vw, 2.5rem);
-  color: #f5f6fa;
+  color: var(--color-bg);
   background:
-    radial-gradient(circle at 92% 18%, rgba(126, 219, 138, 0.26), transparent 18rem),
-    #4f7cff;
-  box-shadow: 0 2rem 5rem rgba(79, 124, 255, 0.22);
+    radial-gradient(circle at 92% 18%, color-mix(in srgb, var(--color-text) 16%, transparent), transparent 18rem),
+    var(--color-accent);
+  box-shadow: 0 2rem 5rem color-mix(in srgb, var(--color-accent) 22%, transparent);
 }
 
 .evaluationCopy {
@@ -105,7 +104,7 @@
 }
 
 .retroMark {
-  color: #09112a;
+  color: var(--color-bg);
   font-family: var(--font-silkscreen), monospace;
   font-size: clamp(1.2rem, 2.4vw, 2.5rem);
   line-height: 1;
@@ -118,18 +117,18 @@
   font-family: var(--font-space-grotesk), sans-serif;
   font-weight: 600;
   line-height: 0.98;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 .evaluationTitle {
   max-width: 15ch;
-  color: #f5f6fa;
+  color: var(--color-bg);
   font-size: clamp(2.25rem, 5vw, 5rem);
 }
 
 .evaluationCopy p {
   max-width: 48rem;
-  color: rgba(245, 246, 250, 0.9);
+  color: color-mix(in srgb, var(--color-bg) 86%, var(--color-support-copper));
   font-size: clamp(1rem, 1.35vw, 1.15rem);
 }
 
@@ -145,7 +144,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.9rem;
-  border: 1px solid #09112a;
+  border: 1px solid var(--color-bg);
   border-radius: 999px;
   padding: 0.95rem 1.35rem;
   font-family: var(--font-space-grotesk), sans-serif;
@@ -163,31 +162,31 @@
 }
 
 .action {
-  color: #09112a;
-  background: #f5f6fa;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
 .actionDisabled {
-  color: rgba(9, 17, 42, 0.56);
-  background: rgba(245, 246, 250, 0.52);
+  color: color-mix(in srgb, var(--color-bg) 56%, transparent);
+  background: color-mix(in srgb, var(--color-text) 52%, transparent);
   cursor: not-allowed;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .action:hover {
-    color: #f5f6fa;
-    background: #09112a;
+    color: var(--color-bg);
+    background: var(--color-text);
     transform: translateY(-0.2rem);
-    box-shadow: 0 1rem 2rem rgba(9, 17, 42, 0.18);
+    box-shadow: 0 1rem 2rem color-mix(in srgb, var(--color-bg) 18%, transparent);
   }
 }
 
 .action:focus-visible {
-  outline: 3px solid #f5f6fa;
+  outline: 3px solid var(--color-bg);
   outline-offset: 4px;
-  background: #09112a;
-  color: #f5f6fa;
-  box-shadow: 0 0 0 7px rgba(9, 17, 42, 0.42);
+  background: var(--color-text);
+  color: var(--color-bg);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--color-bg) 42%, transparent);
 }
 
 .action:active {
@@ -206,7 +205,7 @@
 }
 
 .thanksMark {
-  color: #4f7cff;
+  color: var(--color-support-copper);
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 600;
@@ -215,13 +214,13 @@
 
 .thanksTitle {
   margin-bottom: 1.25rem;
-  color: #09112a;
+  color: var(--color-text);
   font-size: clamp(2rem, 4vw, 4rem);
 }
 
 .thanks p {
   max-width: 42rem;
-  color: #4e5568;
+  color: var(--color-text-muted);
   font-size: clamp(1rem, 1.25vw, 1.15rem);
 }
 
@@ -230,10 +229,8 @@
 }
 
 .footer {
-  color: #f5f6fa;
-  background:
-    radial-gradient(circle at 50% -10%, rgba(245, 246, 250, 0.22), transparent 16rem),
-    #09112a;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
 .footerInner {
@@ -246,7 +243,7 @@
 }
 
 .footerMark {
-  color: #7edb8a;
+  color: var(--color-accent);
   font-family: var(--font-silkscreen), monospace;
   font-size: clamp(0.9rem, 1.6vw, 1.25rem);
   letter-spacing: 0.08em;
@@ -254,7 +251,7 @@
 
 .footer p {
   max-width: 54rem;
-  color: rgba(245, 246, 250, 0.78);
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
   font-size: clamp(0.95rem, 1.2vw, 1.08rem);
 }
 

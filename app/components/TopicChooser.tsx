@@ -41,7 +41,7 @@ const DESKTOP_ALIGNMENT_WIDTH = 640;
 
 const sectionBackground: CSSProperties = {
   background:
-    "linear-gradient(rgba(79, 124, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 124, 255, 0.06) 1px, transparent 1px), #09112A",
+    "linear-gradient(color-mix(in srgb, var(--color-support-blue) 18%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--color-support-saffron) 9%, transparent) 1px, transparent 1px), var(--color-bg)",
   backgroundSize: "72px 72px",
 };
 
@@ -322,23 +322,23 @@ export default function TopicChooser({ content }: TopicChooserProps) {
     <div
       id={content.id}
       aria-labelledby={`${content.id}-heading`}
-      className="relative isolate overflow-hidden bg-[#09112A] py-[clamp(4rem,8vw,7rem)] pb-0 text-[#F5F6FA]"
+      className="relative isolate overflow-hidden bg-page py-[clamp(4rem,8vw,7rem)] pb-0 text-copy"
       style={sectionBackground}
     >
       <div
-        className="pointer-events-none absolute -top-36 -right-48 -z-10 h-[30rem] w-[30rem] rounded-full bg-[#4F7CFF]/15 blur-[90px]"
+        className="pointer-events-none absolute -top-36 -right-48 -z-10 h-[30rem] w-[30rem] rounded-full bg-support-copper/15 blur-[90px]"
         aria-hidden="true"
       />
 
-      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-12">
+      <div className="mx-auto w-full max-w-page px-6 sm:px-10 lg:px-12">
         <h2
           id={`${content.id}-heading`}
-          className="max-w-[8ch] font-(family-name:--font-space-grotesk) text-[clamp(2.9rem,15vw,4.9rem)] leading-[0.9] font-medium text-[#F5F6FA] sm:text-[clamp(4.2rem,9vw,6rem)] lg:text-[clamp(4.6rem,7.4vw,7rem)]"
+          className="max-w-[8ch] font-display text-[clamp(2.9rem,15vw,4.9rem)] leading-[0.9] font-medium text-copy sm:text-[clamp(4.2rem,9vw,6rem)] lg:text-[clamp(4.6rem,7.4vw,7rem)]"
         >
           <span className="block">{content.title.lineOne}</span>
           <span className="flex items-baseline gap-3">
             <span>{content.title.lineTwo}</span>
-            <span className="font-(family-name:--font-silkscreen) text-[0.45em] leading-none text-[#7EDB8A]">
+            <span className="font-pixel text-[0.45em] leading-none text-accent">
               {content.title.accent}
             </span>
           </span>
@@ -374,7 +374,7 @@ export default function TopicChooser({ content }: TopicChooserProps) {
               }}
               href={`#${topic.id}`}
               draggable={false}
-              className="group flex min-h-[22.5rem] flex-[0_0_min(78vw,19rem)] snap-center snap-always flex-col justify-between overflow-hidden rounded-[1.35rem] border border-[#141826]/15 bg-[#F5F6FA] p-6 text-[#09112A] no-underline shadow-[0_1.2rem_3rem_rgba(0,0,0,0.16)] transition-colors duration-[250ms] ease-out [-webkit-user-drag:none] hover:border-[#4F7CFF] hover:bg-[#4F7CFF] hover:text-[#09112A] focus-visible:border-[#4F7CFF] focus-visible:bg-[#4F7CFF] focus-visible:text-[#09112A] focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-[#F5F6FA] sm:min-h-96 sm:flex-[0_0_clamp(15.5rem,34vw,18rem)] sm:snap-start sm:p-7 lg:min-h-[24.5rem] lg:flex-[0_0_clamp(13.75rem,15.5vw,15rem)] lg:rounded-[1.15rem]"
+              className="group flex min-h-[22.5rem] flex-[0_0_min(78vw,19rem)] snap-center snap-always flex-col justify-between overflow-hidden rounded-[1.35rem] border border-line bg-surface-elevated p-6 text-copy no-underline shadow-sticky-card transition-colors duration-[250ms] ease-out [-webkit-user-drag:none] hover:border-accent hover:bg-accent hover:text-page focus-visible:border-accent focus-visible:bg-accent focus-visible:text-page focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-copy sm:min-h-96 sm:flex-[0_0_clamp(15.5rem,34vw,18rem)] sm:snap-start sm:p-7 lg:min-h-[24.5rem] lg:flex-[0_0_clamp(13.75rem,15.5vw,15rem)] lg:rounded-[1.15rem]"
               onClick={handleCardClick}
               onFocus={() => {
                 if (gestureRef.current.pointerId === null) {
@@ -383,17 +383,17 @@ export default function TopicChooser({ content }: TopicChooserProps) {
               }}
             >
               <span
-                className="grid min-h-16 w-full place-items-center text-[clamp(3.25rem,15vw,5.25rem)] text-[#09112A] transition-colors duration-[250ms] group-hover:text-[#09112A] group-focus-visible:text-[#09112A] sm:text-[4.5rem] lg:text-[4rem]"
+                className="grid min-h-16 w-full place-items-center text-[clamp(3.25rem,15vw,5.25rem)] text-accent transition-colors duration-[250ms] group-hover:text-page group-focus-visible:text-page sm:text-[4.5rem] lg:text-[4rem]"
                 aria-hidden="true"
               >
                 <Icon />
               </span>
 
               <span className="grid gap-3">
-                <span className="max-w-[12ch] font-(family-name:--font-space-grotesk) text-[clamp(1.45rem,6vw,1.9rem)] leading-[1.02] font-bold text-current sm:text-[1.65rem] lg:text-[1.55rem]">
+                <span className="max-w-[12ch] font-display text-[clamp(1.45rem,6vw,1.9rem)] leading-[1.02] font-bold text-current sm:text-[1.65rem] lg:text-[1.55rem]">
                   {topic.title}
                 </span>
-                <span className="max-w-[24ch] font-(family-name:--font-inter) text-[0.95rem] leading-[1.45] text-[#4E5568] transition-colors duration-[250ms] group-hover:text-[#09112A] group-focus-visible:text-[#09112A] lg:text-[0.92rem]">
+                <span className="max-w-[24ch] font-sans text-[0.95rem] leading-[1.45] text-muted transition-colors duration-[250ms] group-hover:text-page group-focus-visible:text-page lg:text-[0.92rem]">
                   {topic.description}
                 </span>
               </span>
@@ -403,7 +403,7 @@ export default function TopicChooser({ content }: TopicChooserProps) {
       </div>
 
       <div
-        className="mx-auto mt-3 flex min-h-10 w-fit items-center gap-2 rounded-full border border-[#F5F6FA]/50 bg-[#09112A]/80 px-3 py-2 sm:hidden"
+        className="mx-auto mt-3 flex min-h-10 w-fit items-center gap-2 rounded-full border border-line-strong bg-page/80 px-3 py-2 sm:hidden"
         role="status"
         aria-live="polite"
         aria-label={`Tema ${currentIndex + 1} de ${content.topics.length}`}
@@ -415,8 +415,8 @@ export default function TopicChooser({ content }: TopicChooserProps) {
             className={[
               "h-2 rounded-full transition-[width,background-color] duration-[250ms]",
               index === currentIndex
-                ? "w-8 bg-[#4F7CFF]"
-                : "w-2 bg-[#F5F6FA]/70",
+                ? "w-8 bg-accent"
+                : "w-2 bg-support-blue",
             ].join(" ")}
           />
         ))}
